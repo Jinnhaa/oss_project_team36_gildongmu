@@ -21,7 +21,7 @@ Open-source AI based mobile voice navigation assistant for elderly public transp
 
 ## 폴더 구조
 ```text
-ansimgil-ai/
+gildongmu-ai/
  ├─ app.py
  ├─ speech_to_text.py
  ├─ route_ai_analyzer.py
