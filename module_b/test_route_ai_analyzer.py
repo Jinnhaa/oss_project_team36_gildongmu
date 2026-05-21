@@ -4,8 +4,7 @@ Module B 테스트 실행 파일
 역할:
 1. test_cases.csv 파일을 읽는다.
 2. 각 테스트 문장을 analyze_route()에 넣는다.
-3. 예상 출발지, 목적지, 의도와 실제 결과를 비교한다.
-4. 테스트 성공/실패 결과를 출력한다.
+3. 정상 결과와 의도된 오류 결과를 모두 테스트한다.
 
 실행 방법:
 python3 module_b/test_route_ai_analyzer.py
@@ -56,14 +55,30 @@ def run_tests():
 
     for index, case in enumerate(test_cases, start=1):
         input_text = case["input_text"]
+        expected_status = case["expected_status"]
         expected_start = case["expected_start"]
         expected_destination = case["expected_destination"]
         expected_intent = case["expected_intent"]
+        expected_error_code = case["expected_error_code"]
 
         sample_a_result = make_sample_a_result(input_text)
         result = analyze_route(sample_a_result)
 
         print(f"[Test {index}] 입력 문장: {input_text}")
+
+        if expected_status == "error":
+            if result["status"] == "error" and result["error"]["code"] == expected_error_code:
+                print("결과: 성공")
+                print(f"의도된 오류 처리 확인: {expected_error_code}")
+                pass_count += 1
+            else:
+                print("결과: 실패")
+                print(f"예상 오류 코드: {expected_error_code}")
+                print(f"실제 결과: {result}")
+                fail_count += 1
+
+            print("-" * 50)
+            continue
 
         if result["status"] == "error":
             print("결과: 실패")

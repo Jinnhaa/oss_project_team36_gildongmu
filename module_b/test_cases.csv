@@ -1,6 +1,6 @@
-input_text,expected_start,expected_destination,expected_intent
-서울역에서 숙대입구역까지 가고 싶어요,서울역,숙대입구역,route_search
-지금 서울역에서 숙대입구역 갈 수 있어요?,서울역,숙대입구역,route_search
-서울역에서 숙대입구역 가는 막차 끊겼나요?,서울역,숙대입구역,last_train_check
-지하철 없으면 버스로 숙대입구역까지 갈 수 있나요?,,숙대입구역,alternative_route
-을지로입구역에서 숙대입구역까지 가고 싶어요,을지로입구역,숙대입구역,route_search
+input_text,expected_status,expected_start,expected_destination,expected_intent,expected_error_code
+서울역에서 숙대입구역까지 가고 싶어요,success,서울역,숙대입구역,route_search,
+지금 서울역에서 숙대입구역 갈 수 있어요?,success,서울역,숙대입구역,route_search,
+서울역에서 숙대입구역 가는 막차 끊겼나요?,success,서울역,숙대입구역,last_train_check,
+지하철 없으면 버스로 숙대입구역까지 갈 수 있나요?,error,,,alternative_route,B_LOCATION_NOT_FOUND
+을지로입구역에서 숙대입구역까지 가고 싶어요,success,을지로입구역,숙대입구역,route_search,
