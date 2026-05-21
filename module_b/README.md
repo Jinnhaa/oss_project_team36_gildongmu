@@ -54,3 +54,31 @@ start,end,time,subway_status,last_train_status,scenario,transport,estimated_time
 을지로입구역,숙대입구역,00:20,unavailable,ended,bus_alternative,bus,약 35분,1회 환승
 숙대입구역,서울역,23:10,available,available,subway_available,subway,약 10분,환승 없음
 숙대입구역,서울역,00:40,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
+
+## 5. 테스트 방법
+
+Module B 테스트는 `test_route_ai_analyzer.py`를 통해 실행한다.
+
+```bash
+python3 module_b/test_route_ai_analyzer.py
+
+6. 테스트 결과
+
+현재 테스트 케이스 5개 중 3개가 성공하고 2개가 실패하였다.
+
+번호	입력 문장	결과	비고
+1	서울역에서 숙대입구역까지 가고 싶어요	성공	출발지·목적지·의도 정상 추출
+2	지금 서울역에서 숙대입구역 갈 수 있어요?	성공	경로 탐색 의도 정상 분류
+3	서울역에서 숙대입구역 가는 막차 끊겼나요?	성공	막차 확인 의도 정상 분류
+4	지하철 없으면 버스로 숙대입구역까지 갈 수 있나요?	실패	출발지 정보가 없어 B_LOCATION_NOT_FOUND 발생
+5	을지로입구역에서 숙대입구역까지 가고 싶어요	실패	해당 경로 데이터가 없어 B_ROUTE_NOT_FOUND 발생
+7. 현재 한계
+현재 장소 추출은 사전에 등록된 역명만 인식한다.
+출발지가 생략된 문장은 처리하지 못한다.
+routes.csv에 없는 경로는 판단하지 못한다.
+현재 의도 분석은 키워드 기반이며, 추후 Sentence-Transformers 기반 의미 유사도 분석으로 확장할 예정이다.
+8. 다음 개선 방향
+주요 역명 사전 확대
+출발지 생략 시 재입력 요청 기능 개선
+routes.csv 샘플 경로 추가
+scenario_prompts.csv 기반 의미 유사도 분석 기능 추가
