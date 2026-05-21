@@ -1,0 +1,11 @@
+
+그다음 `module_b/routes.csv`에 아래 내용 넣어.
+
+```csv
+start,end,time,subway_status,last_train_status,scenario,transport,estimated_time,transfer
+서울역,숙대입구역,23:00,available,available,subway_available,subway,약 10분,환승 없음
+서울역,숙대입구역,00:30,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
+을지로입구역,숙대입구역,22:30,available,available,subway_available,subway,약 20분,1회 환승
+을지로입구역,숙대입구역,00:20,unavailable,ended,bus_alternative,bus,약 35분,1회 환승
+숙대입구역,서울역,23:10,available,available,subway_available,subway,약 10분,환승 없음
+숙대입구역,서울역,00:40,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
