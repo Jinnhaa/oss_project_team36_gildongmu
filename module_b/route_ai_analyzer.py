@@ -13,49 +13,80 @@ import csv
 from pathlib import Path
 
 
-STATION_LIST = [
-    "서울역",
-    "숙대입구역",
-    "을지로입구역",
-    "시청역",
-    "명동역",
-    "용산역",
-    "공덕역",
-    "홍대입구역",
-    "동대문역사문화공원역",
-    "강남역"
-]
+def load_station_list(csv_path="module_b/stations.csv"):
+    """
+    stations.csv 파일에서 역명 사전을 불러온다.
+    """
+
+    stations = []
+    path = Path(csv_path)
+
+    if not path.exists():
+        return stations
+
+    with open(path, mode="r", encoding="utf-8-sig") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            station_name = row["station_name"].strip()
+
+            if station_name:
+                stations.append(station_name)
+
+    return sorted(stations, key=len, reverse=True)
 
 
 def extract_locations(text):
     """
     사용자 입력 문장에서 출발지와 목적지를 추출한다.
 
-    현재 MVP 단계에서는 STATION_LIST에 등록된 역명이
-    문장에 등장한 순서대로 출발지와 목적지를 판단한다.
+    긴 역명 안에 짧은 역명이 포함되는 경우가 있으므로,
+    겹치는 역명은 긴 역명을 우선하고 중복 추출하지 않는다.
+    예: 동대문역사문화공원역 안의 동대문역 중복 방지
     """
 
     found_stations = []
 
-    for station in STATION_LIST:
+    station_list = load_station_list()
+
+    for station in station_list:
         position = text.find(station)
 
         if position != -1:
             found_stations.append({
                 "station": station,
-                "position": position
+                "position": position,
+                "end_position": position + len(station)
             })
 
-    found_stations.sort(key=lambda item: item["position"])
+    found_stations.sort(key=lambda item: (item["position"], -len(item["station"])))
 
-    if len(found_stations) >= 2:
-        start = found_stations[0]["station"]
-        destination = found_stations[1]["station"]
+    selected_stations = []
+
+    for station_info in found_stations:
+        is_overlapped = False
+
+        for selected in selected_stations:
+            if (
+                station_info["position"] < selected["end_position"] and
+                station_info["end_position"] > selected["position"]
+            ):
+                is_overlapped = True
+                break
+
+        if not is_overlapped:
+            selected_stations.append(station_info)
+
+    selected_stations.sort(key=lambda item: item["position"])
+
+    if len(selected_stations) >= 2:
+        start = selected_stations[0]["station"]
+        destination = selected_stations[1]["station"]
         return start, destination
 
-    if len(found_stations) == 1:
+    if len(selected_stations) == 1:
         start = None
-        destination = found_stations[0]["station"]
+        destination = selected_stations[0]["station"]
         return start, destination
 
     return None, None
