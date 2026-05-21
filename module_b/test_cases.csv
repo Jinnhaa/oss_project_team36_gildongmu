@@ -4,3 +4,13 @@ input_text,expected_status,expected_start,expected_destination,expected_intent,e
 서울역에서 숙대입구역 가는 막차 끊겼나요?,success,서울역,숙대입구역,last_train_check,
 지하철 없으면 버스로 숙대입구역까지 갈 수 있나요?,error,,,alternative_route,B_LOCATION_NOT_FOUND
 을지로입구역에서 숙대입구역까지 가고 싶어요,success,을지로입구역,숙대입구역,route_search,
+시청역에서 숙대입구역까지 가는 길 알려주세요,success,시청역,숙대입구역,route_search,
+명동역에서 숙대입구역까지 지하철 탈 수 있나요?,success,명동역,숙대입구역,subway_availability_check,
+용산역에서 숙대입구역까지 가고 싶어요,success,용산역,숙대입구역,route_search,
+공덕역에서 숙대입구역까지 지하철 없으면 버스로 갈 수 있나요?,success,공덕역,숙대입구역,alternative_route,
+홍대입구역에서 숙대입구역까지 막차 끊겼나요?,success,홍대입구역,숙대입구역,last_train_check,
+동대문역사문화공원역에서 숙대입구역까지 가는 방법 알려주세요,success,동대문역사문화공원역,숙대입구역,route_search,
+강남역에서 숙대입구역까지 지금 갈 수 있어요?,success,강남역,숙대입구역,route_search,
+숙대입구역까지 가고 싶어요,error,,,route_search,B_LOCATION_NOT_FOUND
+강남역에서 집까지 가고 싶어요,error,,,route_search,B_LOCATION_NOT_FOUND
+서울역에서 숙대입구역 말고 다른 방법 있어요?,success,서울역,숙대입구역,alternative_route,
