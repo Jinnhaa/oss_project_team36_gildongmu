@@ -1,0 +1,17 @@
+start,end,time,subway_status,last_train_status,scenario,transport,estimated_time,transfer
+서울역,숙대입구역,23:00,available,available,subway_available,subway,약 10분,환승 없음
+서울역,숙대입구역,00:30,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
+을지로입구역,숙대입구역,22:30,available,available,subway_available,subway,약 20분,1회 환승
+을지로입구역,숙대입구역,00:20,unavailable,ended,bus_alternative,bus,약 35분,1회 환승
+숙대입구역,서울역,23:10,available,available,subway_available,subway,약 10분,환승 없음
+숙대입구역,서울역,00:40,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
+시청역,숙대입구역,22:50,available,available,subway_available,subway,약 15분,1회 환승
+명동역,숙대입구역,23:20,available,available,subway_available,subway,약 12분,환승 없음
+용산역,숙대입구역,23:30,available,available,subway_available,subway,약 18분,1회 환승
+공덕역,숙대입구역,00:10,unavailable,ended,bus_alternative,bus,약 30분,1회 환승
+홍대입구역,숙대입구역,23:40,available,available,subway_available,subway,약 28분,1회 환승
+홍대입구역,숙대입구역,00:45,unavailable,ended,last_train_ended,bus,약 45분,1회 환승
+동대문역사문화공원역,숙대입구역,23:00,available,available,subway_available,subway,약 25분,1회 환승
+동대문역사문화공원역,숙대입구역,00:30,unavailable,ended,bus_alternative,bus,약 50분,1회 환승
+강남역,숙대입구역,22:40,available,available,subway_available,subway,약 35분,1회 환승
+강남역,숙대입구역,00:50,unavailable,ended,last_train_ended,bus,약 60분,1회 환승

@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "data": {
+    "original_text": "서울역에서 숙대입구역까지 가고 싶어요",
+    "start": "서울역",
+    "destination": "숙대입구역",
+    "intent": "route_search",
+    "scenario": "subway_available",
+    "subway_status": "available",
+    "last_train_status": "available",
+    "alternative_needed": false,
+    "recommended_transport": "subway",
+    "route_summary": {
+      "start": "서울역",
+      "end": "숙대입구역",
+      "transport": "subway",
+      "estimated_time": "약 10분",
+      "transfer": "환승 없음"
+    }
+  },
+  "error": null
+}
