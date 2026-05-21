@@ -97,3 +97,33 @@ Module B에서는 외부 교통 데이터셋을 그대로 사용하지 않고, M
 - `routes.csv` 샘플 경로 추가
 - `scenario_prompts.csv` 기반 의미 유사도 분석 기능 추가
 - Module A, Module C와의 통합 테스트 수행
+
+## 10. C 모듈 전달용 샘플 출력
+
+Module B의 분석 결과는 Module C에서 안내문 생성에 사용할 수 있도록 JSON 형식으로 전달한다.
+
+샘플 출력 파일은 다음 위치에 저장되어 있다.
+
+```text
+module_b/sample_output.json
+
+샘플 출력 주요 필드
+필드	의미
+status	처리 성공 또는 오류 여부
+original_text	사용자 원문
+start	출발지
+destination	목적지
+intent	사용자 요청 의도
+scenario	교통 상황 시나리오
+recommended_transport	추천 교통수단
+route_summary	C 모듈 안내문 생성에 필요한 요약 경로 정보
+C 모듈에서 활용할 값
+
+C 모듈은 주로 다음 값을 사용한다.
+
+start
+destination
+recommended_transport
+route_summary.estimated_time
+route_summary.transfer
+scenario
