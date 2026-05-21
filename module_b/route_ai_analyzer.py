@@ -25,23 +25,30 @@ def extract_locations(text):
     사용자 입력 문장에서 출발지와 목적지를 추출한다.
 
     현재 MVP 단계에서는 STATION_LIST에 등록된 역명이
-    문장에 포함되어 있는지 확인하는 방식으로 처리한다.
+    문장에 등장한 순서대로 출발지와 목적지를 판단한다.
     """
 
     found_stations = []
 
     for station in STATION_LIST:
-        if station in text:
-            found_stations.append(station)
+        position = text.find(station)
+
+        if position != -1:
+            found_stations.append({
+                "station": station,
+                "position": position
+            })
+
+    found_stations.sort(key=lambda item: item["position"])
 
     if len(found_stations) >= 2:
-        start = found_stations[0]
-        destination = found_stations[1]
+        start = found_stations[0]["station"]
+        destination = found_stations[1]["station"]
         return start, destination
 
     if len(found_stations) == 1:
         start = None
-        destination = found_stations[0]
+        destination = found_stations[0]["station"]
         return start, destination
 
     return None, None
