@@ -11,6 +11,14 @@ Module B: 장소·의도 분석 및 교통 판단 모듈
 
 import csv
 from pathlib import Path
+try:
+    from sentence_transformers import SentenceTransformer
+    from sklearn.metrics.pairwise import cosine_similarity
+    NLP_AVAILABLE = True
+except ImportError:
+    NLP_AVAILABLE = False
+
+NLP_MODEL = None
 
 
 def load_station_list(csv_path="module_b/stations.csv"):
@@ -91,23 +99,103 @@ def extract_locations(text):
 
     return None, None
 
+def load_scenario_prompts(csv_path="module_b/scenario_prompts.csv"):
+    """
+    scenario_prompts.csv 파일에서 의도 분석용 시나리오 문장을 불러온다.
+    """
+
+    prompts = []
+    path = Path(csv_path)
+
+    if not path.exists():
+        return prompts
+
+    with open(path, mode="r", encoding="utf-8-sig") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            prompts.append({
+                "intent": row["intent"].strip(),
+                "scenario": row["scenario"].strip(),
+                "prompt": row["prompt"].strip()
+            })
+
+    return prompts
+
+
+def classify_intent_by_similarity(text):
+    """
+    Sentence-Transformers 기반 문장 임베딩을 활용하여
+    사용자 입력 문장과 시나리오 문장 간 의미 유사도를 계산한다.
+    """
+
+    global NLP_MODEL
+
+    if not NLP_AVAILABLE:
+        return None
+
+    prompts = load_scenario_prompts()
+
+    if not prompts:
+        return None
+
+    if NLP_MODEL is None:
+        NLP_MODEL = SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+
+    scenario_texts = [item["prompt"] for item in prompts]
+
+    text_embedding = NLP_MODEL.encode([text])
+    scenario_embeddings = NLP_MODEL.encode(scenario_texts)
+
+    similarities = cosine_similarity(text_embedding, scenario_embeddings)[0]
+
+    best_index = similarities.argmax()
+    best_score = similarities[best_index]
+    best_prompt = prompts[best_index]
+
+    if best_score < 0.45:
+        return None
+
+    return best_prompt["intent"]
 
 def classify_intent(text):
     """
     사용자 입력 문장에서 요청 의도를 분류한다.
 
-    현재 MVP 단계에서는 키워드 기반으로 의도를 분류한다.
-    이후 sentence-transformers 기반 의미 유사도 분석으로 확장할 수 있다.
+    1차: 명확한 교통 키워드 기반 분류
+    2차: 일반 경로 탐색 표현 분류
+    3차: Sentence-Transformers 기반 의미 유사도 분석
+    4차: 기본값 route_search 반환
     """
 
-    if "막차" in text or "끊겼" in text or "끊겼나요" in text:
+    # 1. 막차 확인
+    if "막차" in text or "끊겼" in text or "끊겼나요" in text or "끝났" in text:
         return "last_train_check"
 
+    # 2. 대체 교통수단 요청
     if "버스" in text or "대체" in text or "다른 방법" in text:
         return "alternative_route"
 
-    if "지하철" in text and ("가능" in text or "탈 수" in text):
+    # 3. 지하철 이용 가능 여부 확인
+    if "지하철" in text and ("가능" in text or "탈 수" in text or "이용" in text):
         return "subway_availability_check"
+
+    # 4. 일반 경로 탐색
+    if (
+        "가고 싶" in text or
+        "갈 수" in text or
+        "가는 길" in text or
+        "가는 방법" in text or
+        "길 알려" in text or
+        "방법 알려" in text
+    ):
+        return "route_search"
+
+    # 5. 키워드로 판단하기 어려운 문장은 오픈소스 NLP 모델 활용
+    nlp_intent = classify_intent_by_similarity(text)
+
+    if nlp_intent is not None:
+        return nlp_intent
 
     return "route_search"
 
