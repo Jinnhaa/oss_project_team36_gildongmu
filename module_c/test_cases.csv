@@ -1,0 +1,8 @@
+scenario,start,destination,estimated_time,transfer,expected_status,expected_screen_type,expected_error_code
+subway_available,서울역,숙대입구역,약 10분,환승 없음,success,route_available,
+last_train_ended,서울역,숙대입구역,알 수 없음,,success,last_train_ended,
+bus_alternative,서울역,숙대입구역,약 20분,환승 없음,success,alternative_route,
+walking_needed,서울역,숙대입구역,약 15분,,success,alternative_route,
+need_more_info,,,,,success,need_more_info,
+unknown,서울역,숙대입구역,,,success,error,
+b_error,,,,,error,,C_EMPTY_ROUTE_RESULT
