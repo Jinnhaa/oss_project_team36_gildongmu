@@ -1,101 +1,1451 @@
-text,intent
-서울역에서 숙대입구역까지 가고 싶어요,route_search
-서울역에서 숙대입구역까지 가는 길 알려줘,route_search
-서울역에서 숙대입구역까지 어떻게 가나요,route_search
-서울역에서 숙대입구역까지 이동 방법 알려줘,route_search
-서울역에서 숙대입구역까지 대중교통으로 가고 싶어요,route_search
-서울역에서 숙대입구역까지 지하철로 갈 수 있나요,route_search
-서울역에서 숙대입구역 가는 방법 알려주세요,route_search
-서울역에서 숙대입구역까지 안내해줘,route_search
-서울역에서 숙대입구역까지 길 찾아줘,route_search
-서울역에서 숙대입구역까지 이동 경로 알려줘,route_search
-홍대입구역에서 강남역까지 가고 싶어요,route_search
-홍대입구역에서 강남역까지 어떻게 가나요,route_search
-홍대입구역에서 강남역까지 길 알려줘,route_search
-강남역에서 서울역까지 가는 방법 알려줘,route_search
-숙대입구역에서 서울역까지 가고 싶어요,route_search
-지금 서울역에서 숙대입구역까지 갈 수 있는 경로 알려줘,route_search
-여기서 숙대입구역까지 어떻게 가야 해,route_search
-목적지까지 가는 길을 알려줘,route_search
-대중교통 경로를 알려줘,route_search
-가장 빠른 경로로 알려줘,route_search
-서울역 막차 시간이 언제야,last_train_check
-숙대입구역 가는 막차 알려줘,last_train_check
-서울역에서 숙대입구역까지 막차 남았어,last_train_check
-지금 막차 탈 수 있어,last_train_check
-오늘 지하철 막차 시간 알려줘,last_train_check
-강남역에서 서울역 가는 마지막 지하철 알려줘,last_train_check
-막차가 몇 시까지 있어,last_train_check
-막차 확인해줘,last_train_check
-마지막 열차 시간이 궁금해,last_train_check
-숙대입구역까지 가는 마지막 차 알려줘,last_train_check
-지금 서울역에서 막차 끊겼나요,last_train_check
-이 시간에 막차 남아 있어,last_train_check
-막차 놓치기 전에 갈 수 있어,last_train_check
-지하철 마지막 운행 시간 알려줘,last_train_check
-오늘 서울역 막차 끝났어,last_train_check
-막차가 아직 있는지 확인해줘,last_train_check
-지금 출발하면 막차 탈 수 있나요,last_train_check
-막차 종료됐는지 알려줘,last_train_check
-막차 시간 좀 확인해줘,last_train_check
-현재 막차 이용 가능한지 알려줘,last_train_check
-막차가 끊겼으면 어떻게 가야 해,alternative_route
-지하철이 끝났으면 다른 방법 알려줘,alternative_route
-막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
-버스로 갈 수 있는 다른 경로 알려줘,alternative_route
-택시 말고 갈 수 있는 방법 있어,alternative_route
-지하철이 안 되면 버스 경로 알려줘,alternative_route
-대체 경로 추천해줘,alternative_route
-다른 교통수단으로 가는 방법 알려줘,alternative_route
-막차 끝나면 어떻게 이동해야 해,alternative_route
-버스 대체 경로 알려줘,alternative_route
-지하철 말고 다른 방법으로 가고 싶어요,alternative_route
-교통이 끊기면 어떻게 가야 하나요,alternative_route
-다른 이동 수단이 필요해,alternative_route
-지금 지하철 못 타면 어떻게 해,alternative_route
-밤늦게 갈 수 있는 방법 알려줘,alternative_route
-지하철이 없으면 버스나 택시 알려줘,alternative_route
-대중교통이 끊겼을 때 방법 알려줘,alternative_route
-지하철 운행이 끝났을 때 대체 방법 알려줘,alternative_route
-막차 이후 이동 방법 알려줘,alternative_route
-다른 방법으로 목적지까지 가고 싶어,alternative_route
-지금 지하철 탈 수 있어,subway_availability_check
-이 시간에 지하철 운행해,subway_availability_check
-서울역에서 지하철 이용 가능해,subway_availability_check
-숙대입구역까지 지하철 탈 수 있나요,subway_availability_check
-아직 지하철 다녀,subway_availability_check
-지하철이 지금 운행 중이야,subway_availability_check
-현재 지하철 이용 가능한지 알려줘,subway_availability_check
-지금 지하철로 이동 가능해,subway_availability_check
-지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
-지하철 운행 여부 알려줘,subway_availability_check
-지하철 아직 끊기지 않았어,subway_availability_check
-이 시간에도 지하철 가능해,subway_availability_check
-지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
-지금 역에서 지하철 탈 수 있어,subway_availability_check
-지하철 운행 중인지 확인해줘,subway_availability_check
-현재 지하철 상태 알려줘,subway_availability_check
-서울역 지하철 이용 가능 여부 알려줘,subway_availability_check
-숙대입구역 지하철 운행 여부 알려줘,subway_availability_check
-지하철로 갈 수 있는 상황이야,subway_availability_check
-지금 지하철 사용 가능해,subway_availability_check
-오늘 날씨 어때,unknown
-점심 메뉴 추천해줘,unknown
-노래 틀어줘,unknown
-내일 시험 범위 알려줘,unknown
-버스 기사님 이름 알려줘,unknown
-휴대폰 배터리 얼마나 남았어,unknown
-근처 카페 추천해줘,unknown
-오늘 기분이 안 좋아,unknown
-숙제가 뭐였지,unknown
-택배 언제 와,unknown
-영화 추천해줘,unknown
-알람 맞춰줘,unknown
-내 일정 알려줘,unknown
-뉴스 보여줘,unknown
-음악 재생해줘,unknown
+﻿text,intent
+고속터미널역에서 성수역까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+숙대입구역정류장에서 노량진역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+용산역광장정류장에서 집까지 지하철 이용 가능해,subway_availability_check
+홍대입구역정류장에서 신촌오거리정류장까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+용산역에서 시장까지 환승 적은 경로 알려줘,route_search
+종로3가역에서 출발해서 시청역로 가는 경로 알려줘,route_search
+주민센터에서 동대문역사문화공원정류장까지 가고 싶어요,route_search
+잠실역에서 용산역까지 지하철 아직 끊기지 않았어,subway_availability_check
+학교에서 홍대거리까지 막차 이후 이동 방법 알려줘,alternative_route
+신촌오거리정류장에서 용산전자상가까지 노인이 이동하기 편한 길 알려줘,route_search
+숙대입구역에서 서울시청까지 막차 확인해줘,last_train_check
+홍대거리에서 남영역정류장까지 가는 막차 알려줘,last_train_check
+노량진역에서 출발하면 학교까지 막차 가능해,last_train_check
+고속터미널정류장에서 여의도공원까지 마지막 열차 시간이 언제야,last_train_check
+음악 재생해줘 궁금해,unknown
+지금 출발하면 홍대입구역까지 막차 탈 수 있나요,last_train_check
+을지로입구역에서 시청역까지 계단 적은 길로 알려줘,route_search
+약국에서 근처 병원까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+종로2가정류장에서 출발하면 시청역까지 막차 가능해,last_train_check
+서울역광장에서 홍대입구역까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+근처 병원에서 서울시청까지 지금 버스라도 탈 수 있어,alternative_route
+신촌오거리정류장에서 합정역정류장까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+시장에서 교대역까지 노인이 이동하기 편한 길 알려줘,route_search
+오늘 사진 찍어줘 알려줘,unknown
+여의도공원에서 남영역정류장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+노량진역정류장에서 세브란스병원까지 지하철 이용 가능해,subway_availability_check
+합정역에서 약국까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+시장에서 출발하면 용산역까지 막차 가능해,last_train_check
+동대문역에서 건대입구역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+여의도환승센터에서 서울역버스환승센터까지 어떻게 가나요,route_search
+시청역에서 용산역까지 지하철이 지금 운행 중이야,subway_availability_check
+용산역에서 종로2가정류장까지 지하철 아직 끊기지 않았어,subway_availability_check
+남영역정류장에서 출발해서 성수역로 가는 경로 알려줘,route_search
+고속터미널정류장 출발 숙대입구역정류장 도착 경로 알려줘,route_search
 날씨 알려줘,unknown
-맛집 찾아줘,unknown
-전화 걸어줘,unknown
-사진 찍어줘,unknown
-인터넷 검색해줘,unknown
+여의도역에서 용산역까지 환승 적은 경로 알려줘,route_search
+왕십리역정류장에서 강남역까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+건대입구역정류장에서 근처 병원까지 지하철 운행 여부 알려줘,subway_availability_check
+서울역광장에서 종로3가역까지 어떻게 가나요,route_search
+홍대거리까지 가야 하는데 학교에서 어떻게 가요,route_search
+고속터미널정류장에서 신촌역까지 지하철 이용 가능해,subway_availability_check
+세브란스병원에서 왕십리역정류장까지 지금 지하철 이용해도 돼,subway_availability_check
+약국에서 용산역광장정류장까지 대체 경로 추천해줘,alternative_route
+지금 출발하면 교대역까지 막차 탈 수 있나요,last_train_check
+을지로입구역 근처에서 잠실역까지 갈 수 있는 방법 알려줘,route_search
+홍대입구역정류장에서 여의도역까지 막차 시간이 언제야,last_train_check
+지금 용산전자상가에서 시장까지 막차 탈 수 있어,last_train_check
+여의도역에서 학교까지 걷기 적은 경로 알려줘,route_search
+저기 휴대폰 배터리 얼마나 남았어 알려줘,unknown
+오늘 내 일정 알려줘 해줄 수 있어,unknown
+세브란스병원에서 용산전자상가까지 가는 길 알려줘,route_search
+여의도공원 근처에서 종로3가역까지 갈 수 있는 방법 알려줘,route_search
+오늘 고속터미널정류장에서 세브란스병원까지 막차 끝났어,last_train_check
+잠실역에서 강남성모병원까지 노인이 이동하기 편한 길 알려줘,route_search
+신촌오거리정류장에서 숙대입구역까지 지금 지하철로 이동 가능해,subway_availability_check
+서울역광장에서 출발하면 강남역중앙차로까지 막차 가능해,last_train_check
+용산전자상가에서 강남역중앙차로까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+노량진역에서 동대문역까지 새벽에 이동할 방법 알려줘,alternative_route
+세브란스병원에서 용산역까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+세브란스병원에서 동대문역사문화공원정류장까지 막차 확인해줘,last_train_check
+신촌역에서 고속터미널정류장까지 지하철 대신 버스 타야 해,subway_availability_check
+서울시청에서 출발하면 남영역정류장까지 막차 가능해,last_train_check
+동대문역에서 숙대입구역까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+서울역광장에서 종로3가역까지 지하철 운행 상태 확인해줘,subway_availability_check
+저기 노래 틀어줘 궁금해,unknown
+합정역정류장에서 남대문시장 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+종로2가정류장에서 남대문시장까지 버스 대체 경로 알려줘,alternative_route
+고속터미널정류장에서 시장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+오늘 용산역에서 서울역까지 막차 끝났어,last_train_check
+강남성모병원에서 세브란스병원까지 지하철 대신 버스 타야 해,subway_availability_check
+잠깐 오늘 운세 알려줘 좀 알려줘,unknown
+숙명여대정문에서 사당역까지 환승 적은 경로 알려줘,route_search
+종로3가역에서 서울역까지 저상버스 이용 가능한 경로 알려줘,route_search
+성수역에서 숙명여대정문까지 막차 종료됐는지 알려줘,last_train_check
+시청역에서 노량진역까지 빠르게 가는 방법 알려줘,route_search
+강남역중앙차로에서 여의도환승센터까지 지금 가도 막차 탈 수 있어,last_train_check
+신촌오거리정류장에서 건대입구역정류장까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+숙명여대정문에서 숙대입구역정류장 가는 마지막 지하철 알려줘,last_train_check
+시청역에서 을지로입구역까지 대체 경로 추천해줘,alternative_route
+강남역중앙차로에서 서울역까지 지하철 아직 끊기지 않았어,subway_availability_check
+강남성모병원에서 학교까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+유튜브 틀어줘 궁금해,unknown
+숙명여대정문에서 강남역까지 지금 가도 막차 탈 수 있어,last_train_check
+합정역에서 사당역까지 버스 막차 남았는지 알려줘,last_train_check
+지금 오늘 기분이 안 좋아,unknown
+서울시청에서 사당역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+오늘 운세 알려줘 해줄 수 있어,unknown
+강남성모병원에서 시장까지 버스 막차 남았는지 알려줘,last_train_check
+근처 병원에서 숙대입구역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+서울역광장에서 집까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+오늘 오늘 기분이 안 좋아 알려줘,unknown
+여의도공원에서 홍대거리까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+고속터미널역에서 홍대입구역정류장 가는 마지막 지하철 알려줘,last_train_check
+점심 메뉴 추천해줘 궁금해,unknown
+홍대거리에서 강남성모병원까지 이 시간에 지하철 운행해,subway_availability_check
+지금 출발하면 성수역까지 막차 탈 수 있나요,last_train_check
+성수역에서 신촌오거리정류장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+오늘 동대문시장에서 노량진역정류장까지 막차 끝났어,last_train_check
+서울역광장 막차 시간이 궁금해,last_train_check
+점심 메뉴 추천해줘 알려줘,unknown
+집에서 용산역까지 가는 막차 알려줘,last_train_check
+혹시 버스 기사님 이름 알려줘 좀 알려줘,unknown
+지금 오늘 운세 알려줘 해줄 수 있어,unknown
+서울역광장에서 종로3가역까지 지금 지하철 이용해도 돼,subway_availability_check
+노래 틀어줘 알려줘,unknown
+성수역에서 주민센터까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+지금 출발하면 서울역까지 막차 탈 수 있나요,last_train_check
+지금 유튜브 틀어줘 좀 알려줘,unknown
+여의도역에서 동대문역까지 대체 경로 추천해줘,alternative_route
+동대문시장에서 용산역광장정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+홍대거리에서 집까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+음 공부 계획 세워줘 알려줘,unknown
+을지로입구역에서 건대입구역까지 저상버스 이용 가능한 경로 알려줘,route_search
+고속터미널정류장에서 종로3가역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+서울역버스환승센터에서 고속터미널역까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+노량진역정류장에서 교대역까지 지하철 이용 가능해,subway_availability_check
+시장에서 숙대입구역까지 버스 대체 경로 알려줘,alternative_route
+주민센터에서 홍대입구역정류장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+숙대입구역정류장에서 신촌역까지 걷기 적은 경로 알려줘,route_search
+노량진역정류장에서 출발해서 숙대입구역로 가는 경로 알려줘,route_search
+고속터미널정류장에서 출발하면 합정역정류장까지 막차 가능해,last_train_check
+세브란스병원에서 집까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+성수역에서 약국 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+종로3가역에서 동대문역사문화공원정류장까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+왕십리역정류장에서 남영역정류장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+잠깐 맛집 찾아줘 좀 알려줘,unknown
+남대문시장에서 용산역까지 가고 싶어요,route_search
+종로2가정류장 출발 숙대입구역 도착 경로 알려줘,route_search
+저기 택배 언제 와 알려줘,unknown
+합정역에서 남영역정류장까지 안내해줘,route_search
+서울시청에서 을지로입구역까지 가는 길 알려줘,route_search
+강남역에서 용산역광장정류장까지 막차 종료됐는지 알려줘,last_train_check
+약국에서 서울역버스환승센터까지 가는 길 알려줘,route_search
+고속터미널정류장에서 남영역정류장까지 지금 지하철로 이동 가능해,subway_availability_check
+합정역에서 홍대거리까지 계단 적은 길로 알려줘,route_search
+서울역광장에서 여의도공원까지 가고 싶어요,route_search
+동대문역에서 왕십리역정류장까지 빠르게 가는 방법 알려줘,route_search
+음 전화 걸어줘,unknown
+약국에서 고속터미널정류장까지 노인이 이동하기 편한 길 알려줘,route_search
+남영역정류장에서 고속터미널정류장까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+지금 버스 기사님 이름 알려줘 알려줘,unknown
+고속터미널정류장 방향 막차 아직 남아 있어,last_train_check
+신촌오거리정류장에서 서울역버스환승센터까지 지하철 아직 끊기지 않았어,subway_availability_check
+내일 시험 범위 알려줘 좀 알려줘,unknown
+서울역광장에서 서울시청까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+지금 내 폰 찾아줘 알려줘,unknown
+오늘 숙제가 뭐였지 궁금해,unknown
+신촌역에서 사당역까지 막차 시간이 언제야,last_train_check
+노량진역정류장에서 성수역까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+고속터미널역에서 동대문역까지 이동 경로 추천해줘,route_search
+서울역버스환승센터에서 고속터미널정류장까지 이 시간에 지하철 운행해,subway_availability_check
+동대문시장에서 노량진역정류장 가는 마지막 지하철 알려줘,last_train_check
+성수역에서 여의도환승센터까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+숙제가 뭐였지,unknown
+잠실역까지 가는 마지막 차 알려줘,last_train_check
+서울시청 근처에서 동대문역사문화공원정류장까지 갈 수 있는 방법 알려줘,route_search
+근처 병원에서 홍대거리까지 지하철 대신 버스 타야 해,subway_availability_check
+강남역중앙차로에서 종로2가정류장까지 지하철이 지금 운행 중이야,subway_availability_check
+여의도공원에서 동대문역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+건대입구역에서 홍대입구역정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+시장에서 강남역까지 이동 방법 알려줘,route_search
+서울역에서 숙명여대정문까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+강남역에서 시청역까지 환승 적은 경로 알려줘,route_search
+왕십리역정류장에서 서울역버스환승센터까지 지하철 운행 중인지 확인해줘,subway_availability_check
+고속터미널정류장에서 종로2가정류장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+왕십리역정류장에서 잠실역까지 막차 종료됐는지 알려줘,last_train_check
+여의도환승센터에서 합정역정류장까지 마지막 열차 시간이 언제야,last_train_check
+여의도공원에서 용산역광장정류장까지 노인이 이동하기 편한 길 알려줘,route_search
+건대입구역정류장에서 합정역정류장까지 막차 확인해줘,last_train_check
+교대역에서 학교까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+홍대입구역정류장에서 종로3가역까지 지하철 이용 가능해,subway_availability_check
+지금 인터넷 검색해줘 해줄 수 있어,unknown
+고속터미널역에서 용산역까지 새벽에 이동할 방법 알려줘,alternative_route
+고속터미널역에서 서울역광장까지 어떻게 가나요,route_search
+지금 출발하면 숙명여대정문까지 막차 탈 수 있나요,last_train_check
+집에서 잠실역까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+용산전자상가에서 서울시청까지 이동 방법 알려줘,route_search
+합정역에서 용산역광장정류장까지 지금 지하철로 이동 가능해,subway_availability_check
+여의도환승센터에서 을지로입구역까지 막차 시간이 언제야,last_train_check
+여의도공원에서 용산역까지 어떻게 가나요,route_search
+용산역에서 고속터미널정류장까지 마지막 버스 시간 알려줘,last_train_check
+강남역중앙차로에서 용산역광장정류장까지 가고 싶어요,route_search
+음 내 일정 알려줘,unknown
+버스 기사님 이름 알려줘 좀 알려줘,unknown
+시청역에서 여의도역까지 막차 시간이 언제야,last_train_check
+신촌오거리정류장에서 숙대입구역정류장까지 안내해줘,route_search
+잠실역 출발 동대문역사문화공원정류장 도착 경로 알려줘,route_search
+왕십리역정류장에서 학교까지 계단 적은 길로 알려줘,route_search
+용산역광장정류장에서 시장까지 새벽에 이동할 방법 알려줘,alternative_route
+음 알람 맞춰줘 알려줘,unknown
+강남역에서 신촌오거리정류장까지 지하철 아직 끊기지 않았어,subway_availability_check
+강남성모병원에서 왕십리역정류장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+강남역에서 종로3가역까지 막차 이후 이동 방법 알려줘,alternative_route
+근처 병원에서 숙명여대정문까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+근처 병원에서 동대문시장까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+약국에서 용산역까지 빠르게 가는 방법 알려줘,route_search
+종로3가역에서 학교까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+교대역에서 숙대입구역정류장까지 지금 지하철 이용해도 돼,subway_availability_check
+서울역광장에서 숙명여대정문까지 대체 경로 추천해줘,alternative_route
+학교에서 서울역광장까지 막차 남았어,last_train_check
+서울역광장에서 강남역중앙차로까지 현재 지하철 상태 알려줘,subway_availability_check
+지금 출발하면 남영역정류장까지 막차 탈 수 있나요,last_train_check
+서울역버스환승센터에서 을지로입구역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+잠깐 점심 메뉴 추천해줘 해줄 수 있어,unknown
+합정역에서 시청역까지 아직 지하철 다녀,subway_availability_check
+약국에서 사당역까지 지금 지하철 탈 수 있어,subway_availability_check
+신촌역에서 시장까지 지금 가도 막차 탈 수 있어,last_train_check
+홍대입구역에서 출발해서 서울역버스환승센터로 가는 경로 알려줘,route_search
+강남역중앙차로에서 용산역광장정류장 가는 마지막 지하철 알려줘,last_train_check
+저기 오늘 뭐 입을까 좀 알려줘,unknown
+숙대입구역에서 시청역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+시청역에서 학교까지 지하철 아직 끊기지 않았어,subway_availability_check
+근처 병원에서 세브란스병원까지 지하철 대신 버스 타야 해,subway_availability_check
+합정역정류장에서 합정역까지 지하철이 지금 운행 중이야,subway_availability_check
+남영역정류장에서 여의도환승센터까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+홍대입구역에서 홍대입구역정류장까지 저상버스 이용 가능한 경로 알려줘,route_search
+남대문시장에서 세브란스병원까지 지하철 이용 가능해,subway_availability_check
+노량진역정류장에서 건대입구역까지 지금 지하철 이용해도 돼,subway_availability_check
+용산전자상가에서 합정역까지 걷기 적은 경로 알려줘,route_search
+왕십리역에서 사당역까지 가고 싶어요,route_search
+시장에서 숙대입구역까지 빠르게 가는 방법 알려줘,route_search
+잠깐 유튜브 틀어줘 부탁해,unknown
+저기 내 폰 찾아줘,unknown
+숙명여대정문에서 강남역중앙차로까지 현재 지하철 상태 알려줘,subway_availability_check
+여의도공원에서 홍대입구역정류장까지 어떻게 가나요,route_search
+잠깐 내일 시험 범위 알려줘 해줄 수 있어,unknown
+건대입구역정류장에서 사당역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+오늘 휴대폰 배터리 얼마나 남았어 부탁해,unknown
+혹시 택배 언제 와 알려줘,unknown
+지금 공부 계획 세워줘 알려줘,unknown
+동대문역사문화공원정류장에서 종로3가역 가는 마지막 지하철 알려줘,last_train_check
+홍대입구역에서 신촌오거리정류장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+여의도역에서 숙대입구역까지 제일 쉬운 길 알려줘,route_search
+을지로입구역에서 홍대입구역까지 이동 방법 알려줘,route_search
+합정역에서 왕십리역까지 아직 지하철 다녀,subway_availability_check
+사진 찍어줘 알려줘,unknown
+왕십리역에서 여의도환승센터까지 아직 지하철 다녀,subway_availability_check
+을지로입구역에서 서울역까지 대체 경로 추천해줘,alternative_route
+사당역에서 용산역까지 길 찾아줘,route_search
+남영역정류장에서 합정역까지 빠르게 가는 방법 알려줘,route_search
+홍대입구역에서 잠실역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+시청역에서 용산전자상가까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+왕십리역정류장 막차 시간이 궁금해,last_train_check
+시청역에서 합정역정류장까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+강남성모병원에서 세브란스병원까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+교대역에서 출발해서 여의도환승센터로 가는 경로 알려줘,route_search
+건대입구역정류장에서 왕십리역정류장까지 지금 버스라도 탈 수 있어,alternative_route
+세브란스병원에서 종로2가정류장까지 지하철 운행 중인지 확인해줘,subway_availability_check
+용산역에서 강남성모병원까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+종로3가역에서 서울역버스환승센터까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+주민센터에서 노량진역까지 빠르게 가는 방법 알려줘,route_search
+사당역에서 여의도환승센터까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+숙대입구역에서 근처 병원까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+음 오늘 날씨 어때 해줄 수 있어,unknown
+동대문역에서 여의도공원까지 막차 시간이 언제야,last_train_check
+홍대입구역정류장에서 강남역중앙차로까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+홍대거리에서 성수역까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+여의도공원에서 용산역광장정류장까지 지금 버스라도 탈 수 있어,alternative_route
+강남역에서 을지로입구역까지 계단 적은 길로 알려줘,route_search
+왕십리역에서 시장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+건대입구역에서 시장까지 새벽에 이동할 방법 알려줘,alternative_route
+오늘 오늘 기분이 안 좋아 부탁해,unknown
+합정역정류장에서 용산전자상가까지 아직 지하철 다녀,subway_availability_check
+잠실역에서 합정역정류장까지 버스 대체 경로 알려줘,alternative_route
+사당역에서 용산전자상가까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+시청역에서 성수역까지 지하철 이용 가능해,subway_availability_check
+숙대입구역에서 동대문역까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+고속터미널정류장에서 남대문시장까지 현재 지하철 상태 알려줘,subway_availability_check
+종로2가정류장에서 합정역정류장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+세브란스병원에서 노량진역정류장까지 막차 남았어,last_train_check
+집까지 가야 하는데 근처 병원에서 어떻게 가요,route_search
+숙대입구역정류장에서 성수역까지 지금 지하철 탈 수 있어,subway_availability_check
+약국에서 동대문시장까지 지하철 대신 버스 타야 해,subway_availability_check
+서울역버스환승센터에서 약국까지 버스 막차 남았는지 알려줘,last_train_check
+저기 영화 추천해줘 궁금해,unknown
+근처 병원에서 강남역까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+노량진역정류장에서 사당역까지 지하철 운행 여부 알려줘,subway_availability_check
+용산역광장정류장에서 종로3가역까지 지하철 아직 끊기지 않았어,subway_availability_check
+홍대거리에서 집 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+지금 출발하면 남대문시장까지 막차 탈 수 있나요,last_train_check
+왕십리역정류장에서 홍대입구역까지 막차 남았어,last_train_check
+노량진역정류장에서 건대입구역정류장까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+잠실역에서 종로3가역까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+홍대입구역정류장에서 여의도역까지 대중교통으로 가고 싶어요,route_search
+합정역정류장에서 남대문시장 가는 마지막 지하철 알려줘,last_train_check
+신촌역 방향 막차 아직 남아 있어,last_train_check
+홍대입구역에서 여의도역까지 지금 지하철로 이동 가능해,subway_availability_check
+서울역에서 종로2가정류장까지 이동 경로 추천해줘,route_search
+용산전자상가에서 홍대거리까지 이동 방법 알려줘,route_search
+왕십리역정류장에서 주민센터까지 길 찾아줘,route_search
+합정역에서 왕십리역정류장까지 대중교통으로 가고 싶어요,route_search
+고속터미널역에서 시장까지 지하철 운행 중인지 확인해줘,subway_availability_check
+시장 방향 막차 아직 남아 있어,last_train_check
+동대문역사문화공원정류장에서 합정역정류장까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+건대입구역정류장 방향 막차 아직 남아 있어,last_train_check
+홍대입구역정류장 막차 시간이 궁금해,last_train_check
+주민센터에서 시청역까지 마지막 버스 시간 알려줘,last_train_check
+서울역버스환승센터에서 동대문역까지 노인이 이동하기 편한 길 알려줘,route_search
+강남역에서 노량진역까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+동대문역사문화공원정류장에서 용산전자상가 가는 마지막 지하철 알려줘,last_train_check
+여의도공원에서 여의도역까지 길 찾아줘,route_search
+잠실역에서 여의도공원까지 길 찾아줘,route_search
+건대입구역정류장에서 사당역까지 버스 대체 경로 알려줘,alternative_route
+강남성모병원에서 서울시청까지 마지막 버스 시간 알려줘,last_train_check
+여의도역에서 신촌역까지 가는 길 알려줘,route_search
+세브란스병원에서 약국까지 지하철이 지금 운행 중이야,subway_availability_check
+여의도공원에서 주민센터까지 계단 적은 길로 알려줘,route_search
+홍대입구역에서 주민센터까지 아직 지하철 다녀,subway_availability_check
+고속터미널정류장에서 서울시청까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+강남역에서 강남성모병원까지 이동 방법 알려줘,route_search
+종로3가역에서 세브란스병원까지 길 찾아줘,route_search
+시장에서 홍대거리까지 대체 경로 추천해줘,alternative_route
+건대입구역에서 용산전자상가까지 지하철 운행 중인지 확인해줘,subway_availability_check
+교대역 막차 시간이 궁금해,last_train_check
+왕십리역 근처에서 사당역까지 갈 수 있는 방법 알려줘,route_search
+저기 전화 걸어줘 알려줘,unknown
+지금 점심 메뉴 추천해줘 부탁해,unknown
+종로2가정류장에서 성수역까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+왕십리역에서 왕십리역정류장까지 이동 경로 추천해줘,route_search
+건대입구역에서 동대문역사문화공원정류장까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+서울역광장에서 노량진역정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+합정역정류장에서 홍대거리까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+약국에서 잠실역까지 막차 남았어,last_train_check
+약국에서 강남역중앙차로까지 이 시간에도 지하철 가능해,subway_availability_check
+고속터미널역에서 강남역중앙차로까지 막차 남았어,last_train_check
+숙대입구역정류장에서 집까지 마지막 버스 시간 알려줘,last_train_check
+강남역 막차 시간이 궁금해,last_train_check
+여의도역에서 신촌역까지 이 시간에도 지하철 가능해,subway_availability_check
+지금 종로2가정류장에서 남대문시장까지 막차 탈 수 있어,last_train_check
+용산전자상가에서 약국까지 노인이 이동하기 편한 길 알려줘,route_search
+노량진역에서 종로3가역까지 제일 쉬운 길 알려줘,route_search
+용산역광장정류장에서 숙대입구역까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+오늘 주민센터에서 교대역까지 막차 끝났어,last_train_check
+동대문역사문화공원정류장에서 서울시청까지 걷기 적은 경로 알려줘,route_search
+홍대입구역에서 종로3가역까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+왕십리역에서 왕십리역정류장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+동대문시장에서 여의도환승센터까지 어떻게 가나요,route_search
+사당역에서 남영역정류장까지 지금 지하철 탈 수 있어,subway_availability_check
+저기 오늘 기분이 안 좋아 알려줘,unknown
+오늘 뭐 입을까 좀 알려줘,unknown
+근처 병원에서 여의도역까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+집에서 약국까지 가는 막차 알려줘,last_train_check
+용산역광장정류장에서 신촌역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+홍대입구역정류장 방향 막차 아직 남아 있어,last_train_check
+음 영화 추천해줘 궁금해,unknown
+동대문역사문화공원정류장에서 집까지 저상버스 이용 가능한 경로 알려줘,route_search
+합정역정류장에서 여의도환승센터까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+근처 병원에서 용산역광장정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+남영역정류장에서 동대문역사문화공원정류장 가는 마지막 지하철 알려줘,last_train_check
+시청역에서 고속터미널역까지 환승 적은 경로 알려줘,route_search
+학교에서 남대문시장까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+을지로입구역에서 숙명여대정문까지 현재 지하철 상태 알려줘,subway_availability_check
+오늘 서울역광장에서 노량진역까지 막차 끝났어,last_train_check
+합정역에서 용산전자상가까지 안내해줘,route_search
+용산전자상가에서 시장까지 이 시간에 지하철 운행해,subway_availability_check
+신촌오거리정류장에서 주민센터까지 제일 쉬운 길 알려줘,route_search
+지금 내 일정 알려줘,unknown
+혹시 숙제가 뭐였지 궁금해,unknown
+시장에서 합정역까지 제일 쉬운 길 알려줘,route_search
+숙명여대정문에서 서울역까지 지금 가도 막차 탈 수 있어,last_train_check
+시청역에서 여의도역까지 이동 방법 알려줘,route_search
+종로2가정류장에서 강남역중앙차로까지 저상버스 이용 가능한 경로 알려줘,route_search
+강남역에서 숙명여대정문까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+신촌역에서 시청역까지 막차 남았어,last_train_check
+학교에서 근처 병원까지 지하철 이용 가능해,subway_availability_check
+서울역버스환승센터에서 노량진역까지 이 시간에도 지하철 가능해,subway_availability_check
+여의도역에서 고속터미널역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+잠깐 전화 걸어줘 해줄 수 있어,unknown
+주민센터에서 신촌역까지 가는 길 알려줘,route_search
+홍대입구역에서 강남성모병원까지 어떻게 가나요,route_search
+용산전자상가 출발 약국 도착 경로 알려줘,route_search
+홍대입구역에서 여의도공원까지 막차 이후 이동 방법 알려줘,alternative_route
+용산전자상가까지 가야 하는데 여의도역에서 어떻게 가요,route_search
+시청역에서 신촌오거리정류장까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+혹시 점심 메뉴 추천해줘 부탁해,unknown
+강남역에서 남대문시장까지 계단 적은 길로 알려줘,route_search
+홍대입구역정류장에서 서울역광장까지 제일 쉬운 길 알려줘,route_search
+고속터미널역에서 성수역까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+강남역에서 출발해서 을지로입구역로 가는 경로 알려줘,route_search
+서울시청에서 집까지 이 시간에도 지하철 가능해,subway_availability_check
+홍대입구역정류장에서 건대입구역정류장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+숙대입구역정류장에서 여의도환승센터까지 막차 종료됐는지 알려줘,last_train_check
+집에서 동대문시장까지 지하철 이용 가능해,subway_availability_check
+혹시 오늘 뭐 입을까 궁금해,unknown
+강남역에서 집 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+여의도환승센터에서 근처 병원까지 가는 길 알려줘,route_search
+신촌역에서 주민센터까지 가는 길 알려줘,route_search
+시장에서 용산역광장정류장까지 지하철 이용 가능해,subway_availability_check
+서울시청에서 약국까지 버스 막차 남았는지 알려줘,last_train_check
+학교에서 교대역까지 길 찾아줘,route_search
+건대입구역정류장에서 건대입구역까지 지금 지하철 이용해도 돼,subway_availability_check
+음 학교 과제 알려줘 부탁해,unknown
+오늘 여의도환승센터에서 동대문시장까지 막차 끝났어,last_train_check
+숙명여대정문에서 노량진역까지 대중교통으로 가고 싶어요,route_search
+잠실역에서 신촌역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+고속터미널정류장에서 신촌역까지 버스 막차 남았는지 알려줘,last_train_check
+신촌역에서 주민센터까지 지하철이 지금 운행 중이야,subway_availability_check
+오늘 노래 틀어줘 부탁해,unknown
+용산역까지 가는 마지막 차 알려줘,last_train_check
+홍대입구역에서 고속터미널역까지 계단 적은 길로 알려줘,route_search
+왕십리역정류장에서 출발하면 주민센터까지 막차 가능해,last_train_check
+숙대입구역에서 강남역중앙차로까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+집에서 노량진역정류장까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+서울시청에서 강남성모병원까지 지금 지하철로 이동 가능해,subway_availability_check
+종로3가역에서 출발하면 용산전자상가까지 막차 가능해,last_train_check
+지금 유튜브 틀어줘 부탁해,unknown
+지금 출발하면 강남역중앙차로까지 막차 탈 수 있나요,last_train_check
+남대문시장에서 사당역까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+숙대입구역정류장에서 용산전자상가까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+강남역에서 합정역정류장까지 어떻게 가나요,route_search
+노량진역에서 홍대거리까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+숙명여대정문에서 잠실역까지 제일 쉬운 길 알려줘,route_search
+왕십리역정류장에서 용산역까지 지금 지하철 이용해도 돼,subway_availability_check
+종로3가역에서 시청역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+내일 시험 범위 알려줘,unknown
+용산역광장정류장에서 남영역정류장까지 지하철 대신 버스 타야 해,subway_availability_check
+세브란스병원에서 여의도환승센터까지 대중교통으로 가고 싶어요,route_search
+홍대거리에서 용산역까지 어르신이 가기 쉬운 길 알려줘,route_search
+왕십리역에서 근처 병원까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+지금 건대입구역에서 왕십리역까지 막차 탈 수 있어,last_train_check
+남영역정류장에서 사당역까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+합정역정류장에서 홍대입구역정류장까지 막차 시간이 언제야,last_train_check
+여의도환승센터 막차 시간이 궁금해,last_train_check
+남대문시장에서 숙대입구역정류장까지 지금 버스라도 탈 수 있어,alternative_route
+고속터미널정류장에서 서울시청까지 막차 이후 이동 방법 알려줘,alternative_route
+용산전자상가에서 교대역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+주민센터에서 서울역버스환승센터까지 막차 종료됐는지 알려줘,last_train_check
+오늘 고속터미널역에서 세브란스병원까지 막차 끝났어,last_train_check
+잠깐 심심해 알려줘,unknown
+혹시 오늘 기분이 안 좋아 해줄 수 있어,unknown
+서울역광장에서 합정역까지 이동 경로 추천해줘,route_search
+종로2가정류장에서 출발하면 홍대입구역정류장까지 막차 가능해,last_train_check
+지금 세브란스병원에서 서울역버스환승센터까지 막차 탈 수 있어,last_train_check
+신촌오거리정류장에서 합정역까지 현재 지하철 상태 알려줘,subway_availability_check
+숙명여대정문에서 합정역정류장까지 지하철 대신 버스 타야 해,subway_availability_check
+서울역광장에서 고속터미널역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+혹시 숙제가 뭐였지,unknown
+잠깐 알람 맞춰줘 알려줘,unknown
+오늘 휴대폰 배터리 얼마나 남았어,unknown
+오늘 날씨 알려줘 궁금해,unknown
+교대역에서 을지로입구역까지 걷기 적은 경로 알려줘,route_search
+저기 음악 재생해줘 해줄 수 있어,unknown
+용산역에서 서울역까지 가는 막차 알려줘,last_train_check
+홍대거리에서 왕십리역정류장까지 지금 버스라도 탈 수 있어,alternative_route
+서울역버스환승센터에서 출발하면 강남성모병원까지 막차 가능해,last_train_check
+종로2가정류장에서 용산전자상가까지 지하철 대신 버스 타야 해,subway_availability_check
+노량진역 근처에서 여의도역까지 갈 수 있는 방법 알려줘,route_search
+노량진역에서 홍대거리까지 이 시간에 지하철 운행해,subway_availability_check
+오늘 알람 맞춰줘 좀 알려줘,unknown
+여의도환승센터에서 합정역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+시청역에서 용산역까지 이동 경로 추천해줘,route_search
+잠실역에서 용산역까지 지금 가도 막차 탈 수 있어,last_train_check
+용산전자상가에서 시청역까지 막차 확인해줘,last_train_check
+동대문시장에서 서울역까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+서울역버스환승센터에서 여의도공원까지 이동 방법 알려줘,route_search
+건대입구역정류장에서 서울시청까지 지하철 운행 상태 확인해줘,subway_availability_check
+종로2가정류장에서 왕십리역정류장까지 노인이 이동하기 편한 길 알려줘,route_search
+종로2가정류장에서 강남성모병원까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+노량진역에서 서울역버스환승센터까지 마지막 열차 시간이 언제야,last_train_check
+을지로입구역에서 합정역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+합정역에서 용산역까지 지금 가도 막차 탈 수 있어,last_train_check
+교대역에서 집까지 길 찾아줘,route_search
+근처 병원에서 합정역까지 마지막 열차 시간이 언제야,last_train_check
+고속터미널정류장에서 홍대입구역정류장까지 지하철 운행 중인지 확인해줘,subway_availability_check
+여의도환승센터에서 노량진역까지 지금 가도 막차 탈 수 있어,last_train_check
+고속터미널정류장에서 시장까지 새벽에 이동할 방법 알려줘,alternative_route
+서울역버스환승센터에서 잠실역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+용산전자상가에서 서울시청까지 가는 막차 알려줘,last_train_check
+숙대입구역에서 출발하면 세브란스병원까지 막차 가능해,last_train_check
+교대역에서 숙대입구역정류장까지 마지막 열차 시간이 언제야,last_train_check
+합정역정류장 출발 건대입구역정류장 도착 경로 알려줘,route_search
+종로2가정류장에서 홍대거리까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+서울역버스환승센터에서 종로3가역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+홍대거리에서 남영역정류장까지 지하철 아직 끊기지 않았어,subway_availability_check
+숙대입구역정류장에서 성수역까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+근처 병원에서 서울역광장까지 저상버스 이용 가능한 경로 알려줘,route_search
+약국에서 용산역광장정류장까지 이동 경로 추천해줘,route_search
+여의도공원에서 약국까지 빠르게 가는 방법 알려줘,route_search
+잠깐 사진 찍어줘 해줄 수 있어,unknown
+서울역버스환승센터에서 신촌오거리정류장까지 길 찾아줘,route_search
+서울역에서 건대입구역정류장까지 제일 쉬운 길 알려줘,route_search
+집에서 건대입구역정류장까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+신촌역에서 숙대입구역정류장까지 가고 싶어요,route_search
+건대입구역정류장에서 남영역정류장까지 환승 적은 경로 알려줘,route_search
+혹시 인터넷 검색해줘,unknown
+학교에서 숙명여대정문까지 환승 적은 경로 알려줘,route_search
+종로2가정류장에서 주민센터까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+세브란스병원에서 시장까지 계단 적은 길로 알려줘,route_search
+시장에서 주민센터까지 지하철 운행 중인지 확인해줘,subway_availability_check
+남대문시장에서 근처 병원까지 지하철 운행 중인지 확인해줘,subway_availability_check
+서울역버스환승센터에서 합정역까지 이동 경로 추천해줘,route_search
+용산역에서 교대역까지 이동 방법 알려줘,route_search
+성수역에서 교대역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+을지로입구역에서 왕십리역정류장 가는 마지막 지하철 알려줘,last_train_check
+용산역에서 신촌역까지 제일 쉬운 길 알려줘,route_search
+노량진역에서 용산역광장정류장까지 계단 적은 길로 알려줘,route_search
+집에서 홍대입구역정류장까지 지금 버스라도 탈 수 있어,alternative_route
+음 뉴스 보여줘,unknown
+고속터미널역에서 주민센터까지 지하철 이용 가능해,subway_availability_check
+숙명여대정문 출발 신촌역 도착 경로 알려줘,route_search
+여의도공원에서 왕십리역까지 환승 적은 경로 알려줘,route_search
+성수역에서 고속터미널역까지 가는 길 알려줘,route_search
+숙명여대정문에서 동대문역까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+근처 병원에서 왕십리역까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+지금 용산역에서 사당역까지 막차 탈 수 있어,last_train_check
+홍대입구역에서 여의도공원 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+고속터미널정류장에서 여의도역까지 마지막 열차 시간이 언제야,last_train_check
+여의도환승센터에서 종로2가정류장까지 가는 막차 알려줘,last_train_check
+저기 오늘 기분이 안 좋아 해줄 수 있어,unknown
+건대입구역정류장에서 을지로입구역까지 노인이 이동하기 편한 길 알려줘,route_search
+왕십리역정류장에서 합정역까지 걷기 적은 경로 알려줘,route_search
+신촌역에서 시장까지 노인이 이동하기 편한 길 알려줘,route_search
+강남역에서 노량진역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+홍대거리에서 시청역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+종로2가정류장에서 홍대거리 가는 마지막 지하철 알려줘,last_train_check
+건대입구역에서 학교까지 버스 막차 남았는지 알려줘,last_train_check
+학교에서 서울역버스환승센터까지 지금 지하철 탈 수 있어,subway_availability_check
+잠실역에서 서울역버스환승센터까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+홍대거리에서 숙대입구역정류장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+용산역광장정류장에서 여의도공원까지 이동 방법 알려줘,route_search
+용산전자상가에서 시장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+지금 집에서 사당역까지 막차 탈 수 있어,last_train_check
+홍대입구역정류장에서 을지로입구역까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+남영역정류장에서 동대문역사문화공원정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+건대입구역정류장에서 고속터미널정류장까지 지금 버스라도 탈 수 있어,alternative_route
+버스 기사님 이름 알려줘 궁금해,unknown
+잠깐 노래 틀어줘,unknown
+서울역버스환승센터에서 서울시청까지 버스 막차 남았는지 알려줘,last_train_check
+주민센터에서 왕십리역정류장까지 대중교통으로 가고 싶어요,route_search
+용산역광장정류장에서 고속터미널역까지 계단 적은 길로 알려줘,route_search
+지금 여의도공원에서 집까지 막차 탈 수 있어,last_train_check
+합정역정류장에서 동대문시장까지 현재 지하철 상태 알려줘,subway_availability_check
+동대문역사문화공원정류장에서 출발해서 남대문시장로 가는 경로 알려줘,route_search
+강남역중앙차로에서 신촌오거리정류장까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+숙대입구역정류장에서 학교까지 대중교통으로 가고 싶어요,route_search
+서울역버스환승센터에서 학교까지 지하철 아직 끊기지 않았어,subway_availability_check
+약국에서 숙대입구역정류장까지 버스 대체 경로 알려줘,alternative_route
+집에서 종로2가정류장까지 지하철 대신 버스 타야 해,subway_availability_check
+주민센터에서 동대문역사문화공원정류장까지 노인이 이동하기 편한 길 알려줘,route_search
+성수역에서 교대역까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+학교에서 종로2가정류장까지 가는 막차 알려줘,last_train_check
+합정역까지 가야 하는데 서울시청에서 어떻게 가요,route_search
+홍대입구역에서 노량진역까지 버스 막차 남았는지 알려줘,last_train_check
+잠깐 내 일정 알려줘 좀 알려줘,unknown
+지금 여의도역에서 숙대입구역정류장까지 막차 탈 수 있어,last_train_check
+용산역에서 세브란스병원까지 노인이 이동하기 편한 길 알려줘,route_search
+지금 노량진역정류장에서 홍대입구역까지 막차 탈 수 있어,last_train_check
+혹시 오늘 운세 알려줘 부탁해,unknown
+근처 병원에서 잠실역까지 막차 남았어,last_train_check
+숙대입구역정류장에서 용산역까지 어르신이 가기 쉬운 길 알려줘,route_search
+종로2가정류장에서 왕십리역까지 이동 방법 알려줘,route_search
+잠깐 숙제가 뭐였지,unknown
+신촌오거리정류장에서 동대문시장까지 빠르게 가는 방법 알려줘,route_search
+근처 병원에서 여의도환승센터까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+종로2가정류장에서 근처 병원 가는 마지막 지하철 알려줘,last_train_check
+합정역에서 사당역까지 새벽에 이동할 방법 알려줘,alternative_route
+시청역에서 숙대입구역까지 막차 확인해줘,last_train_check
+오늘 커피 추천해줘 알려줘,unknown
+시청역에서 신촌오거리정류장까지 지하철 운행 중인지 확인해줘,subway_availability_check
+합정역에서 여의도역까지 걷기 적은 경로 알려줘,route_search
+시장에서 합정역정류장 가는 마지막 지하철 알려줘,last_train_check
+고속터미널역에서 합정역까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+내 폰 찾아줘,unknown
+잠깐 숙제가 뭐였지 궁금해,unknown
+종로3가역에서 서울시청까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+주민센터에서 잠실역까지 지금 버스라도 탈 수 있어,alternative_route
+서울역버스환승센터에서 세브란스병원까지 버스 막차 남았는지 알려줘,last_train_check
+잠깐 영화 추천해줘 해줄 수 있어,unknown
+강남역중앙차로에서 여의도환승센터 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+여의도역에서 약국까지 막차 남았어,last_train_check
+집에서 합정역까지 지금 지하철로 이동 가능해,subway_availability_check
+남영역정류장에서 숙명여대정문까지 지하철 이용 가능해,subway_availability_check
+오늘 버스 기사님 이름 알려줘 궁금해,unknown
+노량진역정류장에서 여의도환승센터까지 아직 지하철 다녀,subway_availability_check
+교대역에서 동대문시장까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+을지로입구역에서 여의도공원까지 지하철 대신 버스 타야 해,subway_availability_check
+근처 병원에서 남영역정류장까지 막차 이후 이동 방법 알려줘,alternative_route
+여의도공원 근처에서 홍대거리까지 갈 수 있는 방법 알려줘,route_search
+종로3가역에서 여의도공원까지 환승 적은 경로 알려줘,route_search
+신촌오거리정류장에서 홍대거리까지 이동 경로 추천해줘,route_search
+학교에서 강남역중앙차로까지 마지막 버스 시간 알려줘,last_train_check
+여의도공원에서 건대입구역정류장까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+강남역중앙차로에서 용산역까지 이동 경로 추천해줘,route_search
+동대문역사문화공원정류장에서 서울역까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+왕십리역정류장에서 시장까지 제일 쉬운 길 알려줘,route_search
+세브란스병원에서 종로3가역까지 가는 막차 알려줘,last_train_check
+잠깐 커피 추천해줘 해줄 수 있어,unknown
+교대역에서 강남성모병원까지 지하철이 지금 운행 중이야,subway_availability_check
+서울시청에서 용산역광장정류장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+성수역까지 가는 마지막 차 알려줘,last_train_check
+지금 일기 써줘 알려줘,unknown
+서울시청까지 가야 하는데 숙명여대정문에서 어떻게 가요,route_search
+오늘 오늘 뭐 입을까 궁금해,unknown
+서울시청에서 숙대입구역까지 노인이 이동하기 편한 길 알려줘,route_search
+세브란스병원에서 숙명여대정문까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+오늘 영화 추천해줘,unknown
+숙대입구역정류장에서 숙대입구역까지 이동 방법 알려줘,route_search
+서울시청에서 강남역중앙차로까지 지하철 운행 중인지 확인해줘,subway_availability_check
+고속터미널역에서 용산역까지 계단 적은 길로 알려줘,route_search
+잠실역에서 서울시청까지 막차 남았어,last_train_check
+을지로입구역에서 여의도역까지 지하철 운행 상태 확인해줘,subway_availability_check
+용산역광장정류장 출발 집 도착 경로 알려줘,route_search
+학교 과제 알려줘 궁금해,unknown
+혹시 유튜브 틀어줘 해줄 수 있어,unknown
+강남성모병원에서 홍대입구역까지 마지막 버스 시간 알려줘,last_train_check
+지금 서울시청에서 강남역중앙차로까지 막차 탈 수 있어,last_train_check
+혹시 오늘 날씨 어때 부탁해,unknown
+오늘 날씨 어때 해줄 수 있어,unknown
+홍대거리에서 사당역까지 버스 막차 남았는지 알려줘,last_train_check
+학교에서 종로2가정류장까지 현재 지하철 상태 알려줘,subway_availability_check
+숙대입구역정류장에서 강남성모병원까지 지하철 운행 중인지 확인해줘,subway_availability_check
+동대문시장에서 용산역까지 노인이 이동하기 편한 길 알려줘,route_search
+학교에서 잠실역까지 막차 확인해줘,last_train_check
+동대문시장에서 신촌오거리정류장까지 지하철 이용 가능해,subway_availability_check
+용산역광장정류장에서 남영역정류장 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+용산전자상가에서 합정역정류장까지 버스 대체 경로 알려줘,alternative_route
+홍대입구역에서 신촌오거리정류장까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+잠실역에서 강남역중앙차로까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+고속터미널역에서 서울역광장까지 막차 이후 이동 방법 알려줘,alternative_route
+서울역버스환승센터에서 출발해서 숙대입구역정류장로 가는 경로 알려줘,route_search
+종로2가정류장에서 숙명여대정문까지 지금 버스라도 탈 수 있어,alternative_route
+사당역에서 출발하면 시장까지 막차 가능해,last_train_check
+서울역광장에서 고속터미널역까지 지하철 대신 버스 타야 해,subway_availability_check
+신촌오거리정류장에서 동대문역까지 저상버스 이용 가능한 경로 알려줘,route_search
+동대문시장에서 홍대입구역정류장까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+동대문시장에서 강남역까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+오늘 커피 추천해줘 좀 알려줘,unknown
+서울역광장에서 서울시청까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+용산역에서 고속터미널정류장까지 어떻게 가나요,route_search
+숙명여대정문까지 가야 하는데 약국에서 어떻게 가요,route_search
+저기 근처 카페 추천해줘 부탁해,unknown
+건대입구역정류장 막차 시간이 궁금해,last_train_check
+서울역광장에서 동대문역까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+숙명여대정문 출발 고속터미널정류장 도착 경로 알려줘,route_search
+고속터미널역에서 을지로입구역까지 지하철이 지금 운행 중이야,subway_availability_check
+오늘 기분이 안 좋아 해줄 수 있어,unknown
+종로3가역에서 고속터미널역까지 제일 쉬운 길 알려줘,route_search
+동대문역사문화공원정류장에서 왕십리역정류장까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+서울역광장에서 건대입구역정류장까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+종로3가역에서 잠실역까지 지하철 이용 가능해,subway_availability_check
+여의도공원에서 남영역정류장까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+강남역중앙차로에서 홍대입구역까지 계단 적은 길로 알려줘,route_search
+약국에서 시장까지 지하철 대신 버스 타야 해,subway_availability_check
+학교에서 잠실역까지 대중교통으로 가고 싶어요,route_search
+집에서 고속터미널역까지 지하철 대신 버스 타야 해,subway_availability_check
+종로2가정류장에서 출발해서 여의도공원로 가는 경로 알려줘,route_search
+숙대입구역정류장까지 가야 하는데 용산역에서 어떻게 가요,route_search
+여의도환승센터에서 학교까지 지하철 운행 상태 확인해줘,subway_availability_check
+잠깐 영화 추천해줘 좀 알려줘,unknown
+주민센터에서 출발해서 성수역로 가는 경로 알려줘,route_search
+여의도공원에서 신촌오거리정류장까지 지금 가도 막차 탈 수 있어,last_train_check
+서울역에서 동대문시장까지 이 시간에도 지하철 가능해,subway_availability_check
+여의도역에서 근처 병원까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+주민센터 방향 막차 아직 남아 있어,last_train_check
+근처 카페 추천해줘,unknown
+합정역에서 강남성모병원까지 버스 대체 경로 알려줘,alternative_route
+저기 영어 단어 외워줘 부탁해,unknown
+음 점심 메뉴 추천해줘 부탁해,unknown
+강남성모병원에서 홍대거리까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+용산역광장정류장에서 고속터미널역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+강남성모병원에서 약국까지 대중교통으로 가고 싶어요,route_search
+남대문시장에서 동대문역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+고속터미널역 출발 교대역 도착 경로 알려줘,route_search
+용산전자상가에서 홍대입구역정류장까지 지금 가도 막차 탈 수 있어,last_train_check
+혹시 커피 추천해줘 해줄 수 있어,unknown
+남대문시장에서 신촌오거리정류장까지 지금 지하철 이용해도 돼,subway_availability_check
+교대역에서 서울시청까지 어르신이 가기 쉬운 길 알려줘,route_search
+홍대입구역정류장에서 노량진역까지 막차 종료됐는지 알려줘,last_train_check
+강남성모병원에서 시청역까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+용산전자상가에서 용산역까지 지금 지하철 이용해도 돼,subway_availability_check
+저기 영화 추천해줘 해줄 수 있어,unknown
+여의도역 막차 시간이 궁금해,last_train_check
+숙대입구역정류장에서 숙대입구역까지 계단 적은 길로 알려줘,route_search
+지금 영어 단어 외워줘,unknown
+혹시 내일 시험 범위 알려줘,unknown
+고속터미널역 방향 막차 아직 남아 있어,last_train_check
+합정역까지 가야 하는데 을지로입구역에서 어떻게 가요,route_search
+종로3가역에서 서울역광장까지 마지막 버스 시간 알려줘,last_train_check
+교대역에서 건대입구역정류장까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+신촌오거리정류장에서 숙명여대정문까지 가고 싶어요,route_search
+홍대입구역정류장에서 시청역까지 새벽에 이동할 방법 알려줘,alternative_route
+왕십리역에서 숙대입구역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+남영역정류장에서 서울역까지 지하철 대신 버스 타야 해,subway_availability_check
+혹시 인터넷 검색해줘 좀 알려줘,unknown
+여의도공원에서 시청역까지 길 찾아줘,route_search
+지금 영어 단어 외워줘 궁금해,unknown
+집에서 종로3가역까지 마지막 버스 시간 알려줘,last_train_check
+신촌역에서 신촌오거리정류장까지 가는 막차 알려줘,last_train_check
+학교에서 사당역까지 버스 대체 경로 알려줘,alternative_route
+노량진역 방향 막차 아직 남아 있어,last_train_check
+건대입구역정류장에서 홍대입구역정류장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+오늘 기분이 안 좋아 부탁해,unknown
+혹시 내 일정 알려줘 궁금해,unknown
+잠깐 택배 언제 와 좀 알려줘,unknown
+홍대입구역정류장에서 숙명여대정문 가는 마지막 지하철 알려줘,last_train_check
+용산전자상가에서 학교까지 지금 지하철 이용해도 돼,subway_availability_check
+사당역에서 고속터미널역까지 대중교통으로 가고 싶어요,route_search
+교대역에서 서울역버스환승센터까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+주민센터에서 남대문시장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+지금 뉴스 보여줘 좀 알려줘,unknown
+동대문역에서 출발해서 신촌역로 가는 경로 알려줘,route_search
+강남성모병원에서 출발하면 강남역중앙차로까지 막차 가능해,last_train_check
+집에서 근처 병원까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+세브란스병원에서 남대문시장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+서울시청에서 출발해서 신촌역로 가는 경로 알려줘,route_search
+합정역정류장에서 신촌오거리정류장까지 새벽에 이동할 방법 알려줘,alternative_route
+음 커피 추천해줘 부탁해,unknown
+동대문역에서 고속터미널역까지 지하철 아직 끊기지 않았어,subway_availability_check
+숙대입구역에서 신촌오거리정류장까지 저상버스 이용 가능한 경로 알려줘,route_search
+잠실역에서 시장까지 아직 지하철 다녀,subway_availability_check
+오늘 택배 언제 와 좀 알려줘,unknown
+건대입구역에서 여의도공원까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+서울역에서 왕십리역정류장까지 지금 지하철 이용해도 돼,subway_availability_check
+홍대거리에서 합정역까지 막차 이후 이동 방법 알려줘,alternative_route
+합정역정류장에서 노량진역까지 지하철 운행 상태 확인해줘,subway_availability_check
+오늘 여의도환승센터에서 학교까지 막차 끝났어,last_train_check
+서울역에서 강남역중앙차로까지 안내해줘,route_search
+잠실역에서 종로3가역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+지금 음악 재생해줘 궁금해,unknown
+학교에서 강남역까지 빠르게 가는 방법 알려줘,route_search
+노량진역에서 서울역버스환승센터 가는 마지막 지하철 알려줘,last_train_check
+사당역에서 홍대거리까지 가고 싶어요,route_search
+용산역에서 성수역까지 안내해줘,route_search
+홍대입구역정류장에서 고속터미널정류장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+서울시청에서 서울역버스환승센터까지 계단 적은 길로 알려줘,route_search
+동대문시장에서 사당역까지 노인이 이동하기 편한 길 알려줘,route_search
+왕십리역에서 숙대입구역까지 어르신이 가기 쉬운 길 알려줘,route_search
+용산역에서 세브란스병원까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+버스 기사님 이름 알려줘 해줄 수 있어,unknown
+여의도역에서 왕십리역까지 이동 경로 추천해줘,route_search
+홍대거리까지 가야 하는데 합정역정류장에서 어떻게 가요,route_search
+용산역광장정류장에서 서울역버스환승센터까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+시장에서 건대입구역까지 걷기 적은 경로 알려줘,route_search
+신촌오거리정류장에서 약국까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+동대문역에서 노량진역까지 환승 적은 경로 알려줘,route_search
+서울역에서 동대문역까지 어떻게 가나요,route_search
+저기 맛집 찾아줘 부탁해,unknown
+잠깐 알람 맞춰줘 부탁해,unknown
+건대입구역에서 종로2가정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+오늘 운세 알려줘 부탁해,unknown
+시장까지 가야 하는데 합정역에서 어떻게 가요,route_search
+노량진역에서 잠실역까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+노량진역정류장에서 숙명여대정문까지 빠르게 가는 방법 알려줘,route_search
+서울시청 방향 막차 아직 남아 있어,last_train_check
+시청역에서 근처 병원까지 막차 이후 이동 방법 알려줘,alternative_route
+지금 노량진역정류장에서 남대문시장까지 막차 탈 수 있어,last_train_check
+고속터미널정류장에서 동대문역까지 대체 경로 추천해줘,alternative_route
+노량진역에서 남영역정류장까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+여의도환승센터 방향 막차 아직 남아 있어,last_train_check
+고속터미널정류장에서 건대입구역정류장까지 마지막 버스 시간 알려줘,last_train_check
+집에서 고속터미널역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+남대문시장에서 신촌역까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+용산역에서 건대입구역까지 마지막 열차 시간이 언제야,last_train_check
+을지로입구역에서 시청역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+잠깐 뉴스 보여줘 좀 알려줘,unknown
+성수역에서 서울역광장까지 어르신이 가기 쉬운 길 알려줘,route_search
+용산역광장정류장에서 홍대입구역까지 버스 대체 경로 알려줘,alternative_route
+홍대거리에서 용산역까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+서울역에서 노량진역정류장까지 마지막 열차 시간이 언제야,last_train_check
+서울역버스환승센터에서 동대문역사문화공원정류장 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+주민센터에서 동대문역사문화공원정류장까지 지하철 운행 중인지 확인해줘,subway_availability_check
+오늘 뉴스 보여줘 궁금해,unknown
+왕십리역정류장에서 용산전자상가까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+성수역에서 여의도공원까지 이동 방법 알려줘,route_search
+홍대입구역에서 노량진역까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+고속터미널정류장에서 시청역까지 가는 막차 알려줘,last_train_check
+홍대입구역에서 잠실역까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+성수역에서 여의도공원까지 저상버스 이용 가능한 경로 알려줘,route_search
+건대입구역정류장에서 종로2가정류장까지 막차 이후 이동 방법 알려줘,alternative_route
+강남역에서 서울역광장까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+서울역버스환승센터에서 신촌역까지 지하철 아직 끊기지 않았어,subway_availability_check
+음 오늘 날씨 어때,unknown
+노량진역정류장에서 세브란스병원까지 빠르게 가는 방법 알려줘,route_search
+잠실역에서 남대문시장까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+합정역에서 숙명여대정문까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+지금 유튜브 틀어줘 해줄 수 있어,unknown
+여의도환승센터에서 숙명여대정문까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+건대입구역에서 서울역버스환승센터까지 지금 지하철 탈 수 있어,subway_availability_check
+을지로입구역에서 남영역정류장까지 지하철 운행 여부 알려줘,subway_availability_check
+동대문역사문화공원정류장에서 여의도환승센터까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+음 오늘 뭐 입을까 해줄 수 있어,unknown
+남대문시장에서 왕십리역정류장까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+혹시 인터넷 검색해줘 해줄 수 있어,unknown
+혹시 버스 기사님 이름 알려줘 해줄 수 있어,unknown
+신촌오거리정류장에서 세브란스병원까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+을지로입구역에서 홍대입구역정류장까지 지하철 운행 상태 확인해줘,subway_availability_check
+합정역정류장에서 노량진역정류장까지 안내해줘,route_search
+잠실역에서 을지로입구역까지 이동 방법 알려줘,route_search
+신촌오거리정류장에서 고속터미널정류장까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+남영역정류장에서 동대문시장까지 이동 경로 추천해줘,route_search
+동대문시장에서 신촌오거리정류장까지 막차 확인해줘,last_train_check
+혹시 내 일정 알려줘 해줄 수 있어,unknown
+숙대입구역에서 숙대입구역정류장까지 아직 지하철 다녀,subway_availability_check
+강남역중앙차로에서 서울역까지 지금 지하철로 이동 가능해,subway_availability_check
+을지로입구역에서 근처 병원까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+홍대입구역정류장에서 신촌오거리정류장까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+근처 병원에서 고속터미널정류장까지 가는 막차 알려줘,last_train_check
+고속터미널정류장에서 여의도환승센터까지 지금 지하철 탈 수 있어,subway_availability_check
+근처 병원에서 성수역까지 버스 막차 남았는지 알려줘,last_train_check
+성수역에서 여의도역까지 버스 대체 경로 알려줘,alternative_route
+성수역에서 남대문시장까지 환승 적은 경로 알려줘,route_search
+내 폰 찾아줘 좀 알려줘,unknown
+용산전자상가에서 왕십리역정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+음 숙제가 뭐였지 해줄 수 있어,unknown
+숙명여대정문에서 시장까지 지금 가도 막차 탈 수 있어,last_train_check
+동대문역사문화공원정류장에서 동대문시장까지 노인이 이동하기 편한 길 알려줘,route_search
+노량진역에서 교대역까지 이동 경로 추천해줘,route_search
+여의도공원에서 강남성모병원까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+동대문역에서 강남역중앙차로까지 저상버스 이용 가능한 경로 알려줘,route_search
+합정역정류장에서 사당역까지 가는 막차 알려줘,last_train_check
+서울역광장에서 잠실역까지 지금 버스라도 탈 수 있어,alternative_route
+홍대입구역정류장에서 동대문역사문화공원정류장까지 어떻게 가나요,route_search
+합정역정류장에서 왕십리역정류장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+신촌역에서 성수역까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+용산역에서 홍대입구역까지 지하철 이용 가능해,subway_availability_check
+종로2가정류장에서 학교 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+오늘 음악 재생해줘 해줄 수 있어,unknown
+저기 사진 찍어줘,unknown
+강남역중앙차로에서 서울시청까지 이동 경로 추천해줘,route_search
+노량진역정류장에서 세브란스병원까지 새벽에 이동할 방법 알려줘,alternative_route
+시장에서 강남성모병원까지 가는 막차 알려줘,last_train_check
+시청역에서 남대문시장까지 환승 적은 경로 알려줘,route_search
+고속터미널역에서 약국까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+혹시 휴대폰 배터리 얼마나 남았어 알려줘,unknown
+지금 근처 카페 추천해줘 알려줘,unknown
+숙명여대정문에서 용산전자상가까지 막차 종료됐는지 알려줘,last_train_check
+동대문시장에서 고속터미널역까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+종로3가역에서 용산전자상가까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+혹시 노래 틀어줘 좀 알려줘,unknown
+숙명여대정문에서 홍대입구역정류장까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+서울역에서 여의도환승센터까지 어르신이 가기 쉬운 길 알려줘,route_search
+왕십리역에서 약국까지 지하철 운행 중인지 확인해줘,subway_availability_check
+오늘 맛집 찾아줘,unknown
+오늘 음악 재생해줘,unknown
+강남역중앙차로에서 숙명여대정문까지 지하철 대신 버스 타야 해,subway_availability_check
+종로2가정류장 막차 시간이 궁금해,last_train_check
+합정역에서 남대문시장까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+홍대거리에서 용산전자상가까지 지하철이 지금 운행 중이야,subway_availability_check
+서울역에서 합정역까지 지하철 운행 상태 확인해줘,subway_availability_check
+근처 병원에서 여의도환승센터까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+여의도환승센터에서 고속터미널정류장까지 이동 경로 추천해줘,route_search
+주민센터에서 서울역광장까지 버스 대체 경로 알려줘,alternative_route
+동대문역에서 출발하면 종로3가역까지 막차 가능해,last_train_check
+을지로입구역에서 시장까지 빠르게 가는 방법 알려줘,route_search
+주민센터에서 강남역중앙차로까지 막차 종료됐는지 알려줘,last_train_check
+고속터미널역에서 출발해서 을지로입구역로 가는 경로 알려줘,route_search
+성수역에서 노량진역까지 제일 쉬운 길 알려줘,route_search
+숙대입구역정류장에서 시청역까지 빠르게 가는 방법 알려줘,route_search
+서울시청에서 학교까지 지하철 운행 중인지 확인해줘,subway_availability_check
+동대문시장 근처에서 을지로입구역까지 갈 수 있는 방법 알려줘,route_search
+고속터미널역에서 숙명여대정문까지 지하철 아직 끊기지 않았어,subway_availability_check
+오늘 고속터미널정류장에서 교대역까지 막차 끝났어,last_train_check
+오늘 근처 카페 추천해줘 부탁해,unknown
+서울시청에서 사당역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+지금 노래 틀어줘 부탁해,unknown
+혹시 근처 카페 추천해줘 해줄 수 있어,unknown
+용산역에서 홍대입구역까지 가고 싶어요,route_search
+서울시청에서 사당역까지 막차 남았어,last_train_check
+신촌역에서 학교까지 안내해줘,route_search
+사당역 출발 세브란스병원 도착 경로 알려줘,route_search
+사당역에서 왕십리역까지 길 찾아줘,route_search
+고속터미널정류장에서 건대입구역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+동대문역에서 여의도환승센터 가는 마지막 지하철 알려줘,last_train_check
+오늘 내 폰 찾아줘 해줄 수 있어,unknown
+동대문역사문화공원정류장에서 왕십리역까지 지하철이 지금 운행 중이야,subway_availability_check
+홍대입구역정류장에서 용산역광장정류장까지 노인이 이동하기 편한 길 알려줘,route_search
+잠깐 점심 메뉴 추천해줘 알려줘,unknown
+고속터미널정류장에서 강남성모병원까지 막차 시간이 언제야,last_train_check
+왕십리역정류장에서 약국까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+혹시 오늘 뭐 입을까,unknown
+합정역정류장에서 종로2가정류장까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+여의도역에서 잠실역까지 이동 방법 알려줘,route_search
+사당역에서 출발해서 여의도역로 가는 경로 알려줘,route_search
+학교에서 용산전자상가까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+서울시청에서 홍대거리까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+강남성모병원에서 남대문시장까지 지하철 이용 가능해,subway_availability_check
+지금 내 폰 찾아줘,unknown
+택배 언제 와 해줄 수 있어,unknown
+종로2가정류장에서 동대문시장까지 새벽에 이동할 방법 알려줘,alternative_route
+여의도환승센터에서 홍대입구역정류장까지 이 시간에 지하철 운행해,subway_availability_check
+잠실역에서 홍대입구역까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+동대문시장에서 잠실역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+남대문시장까지 가는 마지막 차 알려줘,last_train_check
+성수역에서 동대문시장까지 현재 지하철 상태 알려줘,subway_availability_check
+을지로입구역에서 강남역까지 버스 막차 남았는지 알려줘,last_train_check
+건대입구역에서 종로3가역까지 아직 지하철 다녀,subway_availability_check
+지금 근처 병원에서 홍대거리까지 막차 탈 수 있어,last_train_check
+노량진역에서 주민센터까지 길 찾아줘,route_search
+동대문시장에서 성수역까지 마지막 열차 시간이 언제야,last_train_check
+건대입구역에서 강남성모병원까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+잠깐 뉴스 보여줘 부탁해,unknown
+왕십리역정류장에서 시장까지 이 시간에 지하철 운행해,subway_availability_check
+강남역중앙차로에서 여의도환승센터까지 지금 지하철 이용해도 돼,subway_availability_check
+노량진역에서 홍대입구역까지 지하철 운행 여부 알려줘,subway_availability_check
+지금 출발하면 건대입구역정류장까지 막차 탈 수 있나요,last_train_check
+신촌역에서 교대역까지 현재 지하철 상태 알려줘,subway_availability_check
+잠실역에서 왕십리역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+서울역에서 을지로입구역까지 지금 지하철로 이동 가능해,subway_availability_check
+성수역에서 용산전자상가까지 지하철 이용 가능해,subway_availability_check
+건대입구역에서 동대문시장까지 걷기 적은 경로 알려줘,route_search
+을지로입구역 막차 시간이 궁금해,last_train_check
+지금 약국에서 홍대입구역정류장까지 막차 탈 수 있어,last_train_check
+건대입구역에서 성수역까지 가고 싶어요,route_search
+동대문역사문화공원정류장에서 동대문역까지 버스 대체 경로 알려줘,alternative_route
+홍대거리에서 강남역까지 지하철 운행 상태 확인해줘,subway_availability_check
+잠깐 오늘 날씨 어때 좀 알려줘,unknown
+혹시 근처 카페 추천해줘 좀 알려줘,unknown
+음 휴대폰 배터리 얼마나 남았어 해줄 수 있어,unknown
+용산역광장정류장에서 홍대거리까지 대체 경로 추천해줘,alternative_route
+세브란스병원에서 동대문역까지 가고 싶어요,route_search
+서울역광장에서 신촌오거리정류장까지 마지막 열차 시간이 언제야,last_train_check
+신촌역에서 합정역정류장 가는 마지막 지하철 알려줘,last_train_check
+잠실역에서 시장까지 현재 지하철 상태 알려줘,subway_availability_check
+남영역정류장에서 홍대입구역정류장까지 마지막 열차 시간이 언제야,last_train_check
+남대문시장에서 동대문시장까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+집에서 여의도환승센터까지 길 찾아줘,route_search
+혹시 근처 카페 추천해줘 부탁해,unknown
+남영역정류장에서 집까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+종로2가정류장에서 강남역중앙차로까지 지하철 이용 가능해,subway_availability_check
+노량진역에서 서울역광장까지 지하철 운행 여부 알려줘,subway_availability_check
+건대입구역정류장까지 가야 하는데 서울역광장에서 어떻게 가요,route_search
+사당역에서 서울역광장까지 길 찾아줘,route_search
+내 폰 찾아줘 알려줘,unknown
+지금 날씨 알려줘 해줄 수 있어,unknown
+동대문시장에서 동대문역까지 버스 대체 경로 알려줘,alternative_route
+남영역정류장에서 동대문역사문화공원정류장까지 환승 적은 경로 알려줘,route_search
+혹시 버스 기사님 이름 알려줘 궁금해,unknown
+노량진역에서 신촌역까지 막차 남았어,last_train_check
+근처 병원에서 고속터미널역까지 이 시간에 지하철 운행해,subway_availability_check
+노량진역에서 약국 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+여의도환승센터에서 홍대입구역정류장까지 지금 가도 막차 탈 수 있어,last_train_check
+동대문역사문화공원정류장에서 홍대거리까지 지하철이 지금 운행 중이야,subway_availability_check
+숙대입구역정류장에서 출발해서 여의도공원로 가는 경로 알려줘,route_search
+숙명여대정문에서 동대문시장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+홍대거리에서 시청역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+숙명여대정문에서 사당역까지 막차 종료됐는지 알려줘,last_train_check
+신촌오거리정류장에서 고속터미널역까지 지금 지하철 이용해도 돼,subway_availability_check
+사진 찍어줘 부탁해,unknown
+동대문시장에서 사당역까지 제일 쉬운 길 알려줘,route_search
+시청역에서 동대문역사문화공원정류장 가는 마지막 지하철 알려줘,last_train_check
+서울역에서 용산전자상가까지 이동 방법 알려줘,route_search
+서울역광장에서 출발해서 강남성모병원로 가는 경로 알려줘,route_search
+노량진역에서 홍대입구역까지 빠르게 가는 방법 알려줘,route_search
+잠실역 출발 여의도환승센터 도착 경로 알려줘,route_search
+시장에서 숙대입구역정류장까지 현재 지하철 상태 알려줘,subway_availability_check
+신촌역에서 시청역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+교대역에서 서울역버스환승센터까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+동대문시장에서 사당역까지 지하철 운행 상태 확인해줘,subway_availability_check
+남영역정류장에서 홍대거리까지 걷기 적은 경로 알려줘,route_search
+교대역에서 서울역버스환승센터까지 지금 버스라도 탈 수 있어,alternative_route
+오늘 서울시청에서 건대입구역정류장까지 막차 끝났어,last_train_check
+여의도환승센터에서 종로3가역까지 지하철이 지금 운행 중이야,subway_availability_check
+왕십리역정류장에서 홍대입구역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+을지로입구역에서 강남역중앙차로까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+합정역에서 용산역까지 지하철 이용 가능해,subway_availability_check
+약국에서 숙대입구역정류장까지 환승 적은 경로 알려줘,route_search
+세브란스병원에서 합정역정류장까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+시장에서 교대역까지 환승 적은 경로 알려줘,route_search
+교대역에서 여의도환승센터까지 가고 싶어요,route_search
+여의도역에서 출발하면 왕십리역정류장까지 막차 가능해,last_train_check
+서울역광장에서 여의도공원까지 이 시간에 지하철 운행해,subway_availability_check
+합정역정류장까지 가는 마지막 차 알려줘,last_train_check
+신촌역에서 건대입구역정류장까지 지금 지하철 탈 수 있어,subway_availability_check
+음 휴대폰 배터리 얼마나 남았어,unknown
+잠실역에서 홍대입구역까지 길 찾아줘,route_search
+휴대폰 배터리 얼마나 남았어 궁금해,unknown
+신촌역에서 동대문역까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+왕십리역정류장에서 노량진역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+홍대입구역에서 서울역버스환승센터까지 버스 대체 경로 알려줘,alternative_route
+잠깐 영어 단어 외워줘 좀 알려줘,unknown
+강남역에서 잠실역까지 마지막 열차 시간이 언제야,last_train_check
+홍대거리에서 신촌역까지 가는 길 알려줘,route_search
+서울역광장에서 동대문역까지 지하철 운행 여부 알려줘,subway_availability_check
+동대문시장에서 왕십리역정류장까지 지하철 이용 가능해,subway_availability_check
+세브란스병원에서 왕십리역까지 막차 확인해줘,last_train_check
+용산역에서 여의도환승센터까지 빠르게 가는 방법 알려줘,route_search
+지금 왕십리역에서 서울시청까지 막차 탈 수 있어,last_train_check
+동대문역에서 잠실역까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+지금 영어 단어 외워줘 좀 알려줘,unknown
+건대입구역에서 사당역까지 막차 종료됐는지 알려줘,last_train_check
+오늘 숙제가 뭐였지 부탁해,unknown
+건대입구역에서 노량진역정류장까지 지금 지하철 이용해도 돼,subway_availability_check
+강남역에서 여의도환승센터까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+동대문역에서 홍대입구역정류장까지 막차 이후 이동 방법 알려줘,alternative_route
+시장에서 서울역까지 현재 지하철 상태 알려줘,subway_availability_check
+신촌역에서 종로2가정류장까지 환승 적은 경로 알려줘,route_search
+오늘 일기 써줘 부탁해,unknown
+남영역정류장에서 건대입구역정류장까지 버스 대체 경로 알려줘,alternative_route
+서울역광장까지 가는 마지막 차 알려줘,last_train_check
+강남역중앙차로에서 동대문역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+주민센터에서 강남성모병원까지 현재 지하철 상태 알려줘,subway_availability_check
+시청역에서 약국까지 마지막 버스 시간 알려줘,last_train_check
+여의도공원에서 노량진역까지 버스 대체 경로 알려줘,alternative_route
+서울역광장에서 왕십리역정류장까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+숙명여대정문에서 왕십리역정류장까지 버스 대체 경로 알려줘,alternative_route
+숙대입구역정류장에서 용산역까지 대중교통으로 가고 싶어요,route_search
+노량진역정류장에서 신촌역까지 저상버스 이용 가능한 경로 알려줘,route_search
+남영역정류장에서 고속터미널역까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+신촌역에서 남대문시장까지 빠르게 가는 방법 알려줘,route_search
+숙대입구역 근처에서 동대문역까지 갈 수 있는 방법 알려줘,route_search
+집에서 용산전자상가까지 환승 적은 경로 알려줘,route_search
+지금 출발하면 왕십리역정류장까지 막차 탈 수 있나요,last_train_check
+오늘 집에서 강남역까지 막차 끝났어,last_train_check
+잠실역에서 홍대거리까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+오늘 오늘 날씨 어때 좀 알려줘,unknown
+성수역에서 여의도환승센터까지 막차 시간이 언제야,last_train_check
+여의도환승센터에서 강남역까지 새벽에 이동할 방법 알려줘,alternative_route
+건대입구역정류장에서 동대문역까지 막차 남았어,last_train_check
+성수역에서 홍대입구역까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+잠깐 유튜브 틀어줘 궁금해,unknown
+서울역광장에서 고속터미널역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+잠실역에서 세브란스병원까지 버스 대체 경로 알려줘,alternative_route
+여의도환승센터에서 용산역까지 대체 경로 추천해줘,alternative_route
+동대문역사문화공원정류장에서 남영역정류장까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+신촌역에서 여의도공원까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+여의도공원에서 합정역까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+왕십리역정류장에서 근처 병원까지 빠르게 가는 방법 알려줘,route_search
+고속터미널정류장에서 동대문역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+홍대입구역에서 여의도환승센터까지 막차 남았어,last_train_check
+교대역에서 신촌오거리정류장까지 버스 대체 경로 알려줘,alternative_route
+저기 날씨 알려줘 부탁해,unknown
+영어 단어 외워줘 해줄 수 있어,unknown
+오늘 전화 걸어줘 부탁해,unknown
+여의도환승센터에서 용산전자상가까지 버스 대체 경로 알려줘,alternative_route
+왕십리역정류장에서 노량진역까지 지금 지하철 탈 수 있어,subway_availability_check
+건대입구역에서 약국까지 버스 대체 경로 알려줘,alternative_route
+여의도환승센터에서 강남역까지 노인이 이동하기 편한 길 알려줘,route_search
+서울시청에서 집까지 어르신이 가기 쉬운 길 알려줘,route_search
+종로2가정류장에서 여의도공원까지 저상버스 이용 가능한 경로 알려줘,route_search
+남영역정류장에서 왕십리역정류장까지 환승 적은 경로 알려줘,route_search
+종로2가정류장에서 강남역까지 제일 쉬운 길 알려줘,route_search
+용산전자상가에서 여의도역까지 안내해줘,route_search
+서울역광장에서 용산전자상가까지 대체 경로 추천해줘,alternative_route
+잠실역에서 세브란스병원까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+홍대입구역정류장에서 집까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+건대입구역에서 잠실역까지 막차 종료됐는지 알려줘,last_train_check
+오늘 뭐 입을까 해줄 수 있어,unknown
+강남역중앙차로에서 서울역버스환승센터까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+여의도환승센터에서 왕십리역정류장까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+용산전자상가에서 잠실역까지 이 시간에도 지하철 가능해,subway_availability_check
+홍대입구역에서 강남역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+여의도역에서 왕십리역정류장까지 지하철 아직 끊기지 않았어,subway_availability_check
+합정역정류장에서 숙명여대정문까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+강남성모병원에서 서울역광장까지 길 찾아줘,route_search
+노량진역에서 용산전자상가까지 버스 막차 남았는지 알려줘,last_train_check
+서울역광장에서 강남역까지 새벽에 이동할 방법 알려줘,alternative_route
+서울역광장에서 신촌역까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+왕십리역정류장에서 숙대입구역정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+노량진역에서 고속터미널정류장까지 이동 방법 알려줘,route_search
+고속터미널역에서 시장까지 이동 경로 추천해줘,route_search
+건대입구역에서 세브란스병원까지 현재 지하철 상태 알려줘,subway_availability_check
+종로3가역에서 약국까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+홍대거리까지 가야 하는데 서울시청에서 어떻게 가요,route_search
+건대입구역정류장에서 세브란스병원까지 이 시간에도 지하철 가능해,subway_availability_check
+을지로입구역에서 홍대거리까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+숙대입구역에서 종로2가정류장까지 가는 막차 알려줘,last_train_check
+학교에서 잠실역까지 막차 이후 이동 방법 알려줘,alternative_route
+시장에서 근처 병원까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+서울역광장에서 홍대거리까지 지하철 운행 중인지 확인해줘,subway_availability_check
+시장에서 용산전자상가까지 막차 확인해줘,last_train_check
+강남성모병원에서 학교까지 어떻게 가나요,route_search
+용산역광장정류장에서 출발해서 합정역로 가는 경로 알려줘,route_search
+음 택배 언제 와 해줄 수 있어,unknown
+음 유튜브 틀어줘 알려줘,unknown
+남영역정류장에서 성수역까지 막차 종료됐는지 알려줘,last_train_check
+남영역정류장에서 홍대거리까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+노량진역정류장에서 강남성모병원까지 마지막 열차 시간이 언제야,last_train_check
+오늘 근처 병원에서 강남역까지 막차 끝났어,last_train_check
+노량진역정류장에서 신촌오거리정류장까지 빠르게 가는 방법 알려줘,route_search
+홍대입구역정류장에서 집까지 가는 길 알려줘,route_search
+종로3가역에서 고속터미널정류장까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+근처 병원에서 성수역까지 걷기 적은 경로 알려줘,route_search
+시장 출발 동대문시장 도착 경로 알려줘,route_search
+합정역에서 남대문시장까지 지하철이 지금 운행 중이야,subway_availability_check
+왕십리역정류장에서 시청역까지 대중교통으로 가고 싶어요,route_search
+잠깐 일기 써줘 해줄 수 있어,unknown
+홍대입구역정류장에서 남영역정류장까지 제일 쉬운 길 알려줘,route_search
+홍대입구역에서 숙대입구역까지 어떻게 가나요,route_search
+여의도공원에서 합정역까지 막차 시간이 언제야,last_train_check
+홍대입구역에서 노량진역까지 대체 경로 추천해줘,alternative_route
+여의도공원에서 노량진역정류장까지 지금 지하철 탈 수 있어,subway_availability_check
+교대역에서 건대입구역까지 막차 남았어,last_train_check
+강남역중앙차로에서 시장까지 지하철이 지금 운행 중이야,subway_availability_check
+남대문시장에서 여의도역까지 가고 싶어요,route_search
+강남역중앙차로에서 고속터미널정류장까지 이동 경로 추천해줘,route_search
+지금 노량진역에서 을지로입구역까지 막차 탈 수 있어,last_train_check
+여의도역에서 세브란스병원까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+서울역버스환승센터에서 홍대거리까지 막차 놓쳤을 때 대체 교통수단 알려줘,alternative_route
+용산전자상가에서 왕십리역정류장까지 막차 종료됐는지 알려줘,last_train_check
+노량진역에서 동대문시장까지 지하철 이용 가능해,subway_availability_check
+합정역에서 강남역중앙차로까지 마지막 열차 시간이 언제야,last_train_check
+홍대거리에서 사당역까지 막차 남았어,last_train_check
+종로3가역에서 고속터미널정류장 가는 마지막 지하철 알려줘,last_train_check
+강남역에서 종로3가역까지 현재 지하철 상태 알려줘,subway_availability_check
+근처 병원에서 합정역정류장까지 환승 적은 경로 알려줘,route_search
+동대문시장에서 숙대입구역까지 저상버스 이용 가능한 경로 알려줘,route_search
+영화 추천해줘 부탁해,unknown
+여의도공원에서 성수역까지 지금 지하철로 이동 가능해,subway_availability_check
+지금 알람 맞춰줘 해줄 수 있어,unknown
+잠실역에서 여의도환승센터까지 걷기 적은 경로 알려줘,route_search
+지금 숙제가 뭐였지,unknown
+여의도환승센터에서 동대문역사문화공원정류장까지 저상버스 이용 가능한 경로 알려줘,route_search
+서울시청에서 강남역까지 막차 시간이 언제야,last_train_check
+학교에서 왕십리역정류장까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+혹시 택배 언제 와,unknown
+건대입구역정류장에서 서울역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+오늘 사당역에서 신촌역까지 막차 끝났어,last_train_check
+숙명여대정문에서 노량진역까지 어르신이 가기 쉬운 길 알려줘,route_search
+숙대입구역에서 홍대입구역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+용산역에서 홍대입구역까지 가는 길 알려줘,route_search
+오늘 유튜브 틀어줘 해줄 수 있어,unknown
+사당역에서 용산전자상가까지 버스 막차 남았는지 알려줘,last_train_check
+혹시 일기 써줘 궁금해,unknown
+노량진역에서 왕십리역정류장까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+동대문역에서 건대입구역까지 새벽에 이동할 방법 알려줘,alternative_route
+심심해 부탁해,unknown
+서울시청에서 여의도역까지 계단 적은 길로 알려줘,route_search
+용산전자상가에서 주민센터까지 지하철 아직 끊기지 않았어,subway_availability_check
+고속터미널역에서 약국까지 노인이 이동하기 편한 길 알려줘,route_search
+음 유튜브 틀어줘 궁금해,unknown
+신촌역에서 고속터미널정류장까지 노인이 이동하기 편한 길 알려줘,route_search
+종로3가역에서 강남역까지 노인이 이동하기 편한 길 알려줘,route_search
+성수역에서 숙대입구역정류장까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+종로2가정류장에서 남영역정류장까지 마지막 열차 시간이 언제야,last_train_check
+강남성모병원에서 종로2가정류장까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+택배 언제 와 궁금해,unknown
+시청역에서 홍대입구역까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+숙대입구역에서 약국까지 노인이 이동하기 편한 길 알려줘,route_search
+사당역에서 신촌역까지 가는 길 알려줘,route_search
+서울역에서 성수역까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+합정역정류장에서 노량진역정류장까지 어떻게 가나요,route_search
+날씨 알려줘 궁금해,unknown
+종로3가역에서 동대문시장까지 길 찾아줘,route_search
+집에서 신촌오거리정류장까지 막차 시간이 언제야,last_train_check
+홍대입구역에서 성수역까지 버스 막차 남았는지 알려줘,last_train_check
+사당역에서 을지로입구역까지 대중교통으로 가고 싶어요,route_search
+신촌역에서 집까지 지금 지하철 이용해도 돼,subway_availability_check
+동대문시장에서 서울시청까지 계단 적은 길로 알려줘,route_search
+잠깐 휴대폰 배터리 얼마나 남았어,unknown
+남영역정류장에서 잠실역까지 새벽에 이동할 방법 알려줘,alternative_route
+노량진역정류장에서 동대문역사문화공원정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+오늘 날씨 어때 알려줘,unknown
+서울역에서 종로2가정류장까지 계단 적은 길로 알려줘,route_search
+합정역에서 노량진역정류장까지 지하철 운행 여부 알려줘,subway_availability_check
+음 사진 찍어줘 부탁해,unknown
+혹시 오늘 기분이 안 좋아,unknown
+집에서 신촌오거리정류장까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+세브란스병원에서 용산전자상가까지 막차 이후 이동 방법 알려줘,alternative_route
+홍대거리에서 건대입구역까지 가는 막차 알려줘,last_train_check
+잠실역에서 여의도공원까지 마지막 버스 시간 알려줘,last_train_check
+신촌오거리정류장까지 가야 하는데 강남역에서 어떻게 가요,route_search
+강남성모병원에서 홍대거리까지 걷기 적은 경로 알려줘,route_search
+집에서 세브란스병원까지 저상버스 이용 가능한 경로 알려줘,route_search
+약국 방향 막차 아직 남아 있어,last_train_check
+강남역중앙차로에서 주민센터까지 지하철이 지금 운행 중이야,subway_availability_check
+노량진역정류장에서 서울역버스환승센터까지 지금 지하철 탈 수 있어,subway_availability_check
+학교에서 동대문역사문화공원정류장까지 빠르게 가는 방법 알려줘,route_search
+종로3가역에서 남대문시장까지 가고 싶어요,route_search
+사당역에서 동대문역사문화공원정류장까지 막차 남았어,last_train_check
+잠깐 커피 추천해줘 알려줘,unknown
+용산역광장정류장에서 숙대입구역까지 지금 가도 막차 탈 수 있어,last_train_check
+종로3가역에서 집 가는 마지막 지하철 알려줘,last_train_check
+왕십리역에서 주민센터까지 노인이 이동하기 편한 길 알려줘,route_search
+주민센터까지 가야 하는데 서울역광장에서 어떻게 가요,route_search
+용산역에서 학교까지 마지막 열차 시간이 언제야,last_train_check
+약국에서 건대입구역정류장까지 지금 지하철 이용해도 돼,subway_availability_check
+주민센터에서 사당역까지 버스 대체 경로 알려줘,alternative_route
+서울시청 출발 세브란스병원 도착 경로 알려줘,route_search
+서울역버스환승센터에서 고속터미널역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+근처 병원에서 사당역까지 마지막 열차 시간이 언제야,last_train_check
+종로2가정류장에서 시청역까지 아직 지하철 다녀,subway_availability_check
+동대문역에서 고속터미널역까지 빠르게 가는 방법 알려줘,route_search
+집에서 잠실역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+신촌역에서 강남역중앙차로까지 지금 버스라도 탈 수 있어,alternative_route
+홍대입구역에서 신촌역까지 이 시간에 지하철 운행해,subway_availability_check
+홍대입구역정류장에서 강남성모병원까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+지금 숙제가 뭐였지 좀 알려줘,unknown
+여의도역에서 잠실역까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+숙명여대정문에서 합정역정류장까지 대체 경로 추천해줘,alternative_route
+성수역에서 출발해서 서울역광장로 가는 경로 알려줘,route_search
+건대입구역정류장에서 왕십리역정류장까지 제일 쉬운 길 알려줘,route_search
+동대문시장에서 교대역까지 지하철 이용 가능해,subway_availability_check
+시청역에서 고속터미널역까지 이동 방법 알려줘,route_search
+숙명여대정문에서 서울역광장까지 지하철이 지금 운행 중이야,subway_availability_check
+홍대거리에서 사당역까지 안내해줘,route_search
+여의도역에서 여의도환승센터까지 막차 확인해줘,last_train_check
+숙대입구역 방향 막차 아직 남아 있어,last_train_check
+왕십리역정류장에서 합정역까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+종로2가정류장에서 여의도역까지 이동 경로 추천해줘,route_search
+지금 알람 맞춰줘 부탁해,unknown
+지금 출발하면 합정역정류장까지 막차 탈 수 있나요,last_train_check
+용산역광장정류장에서 남영역정류장까지 마지막 열차 시간이 언제야,last_train_check
+용산역광장정류장에서 을지로입구역까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+홍대거리에서 시장까지 이 시간에 지하철 운행해,subway_availability_check
+남영역정류장에서 성수역까지 빠르게 가는 방법 알려줘,route_search
+동대문역에서 학교까지 막차 종료됐는지 알려줘,last_train_check
+동대문시장에서 잠실역까지 버스 막차 남았는지 알려줘,last_train_check
+동대문시장에서 용산역광장정류장까지 계단 적은 길로 알려줘,route_search
+동대문시장에서 종로2가정류장까지 막차 이후 이동 방법 알려줘,alternative_route
+사당역에서 주민센터까지 이 시간에도 지하철 가능해,subway_availability_check
+음 영화 추천해줘,unknown
+홍대입구역정류장에서 합정역정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+용산역광장정류장에서 집까지 막차 확인해줘,last_train_check
+용산역에서 서울역버스환승센터까지 빠르게 가는 방법 알려줘,route_search
+시장에서 건대입구역정류장까지 어르신이 가기 쉬운 길 알려줘,route_search
+약국에서 왕십리역정류장까지 가는 길 알려줘,route_search
+시장에서 노량진역까지 지하철 말고 다른 방법으로 가고 싶어요,alternative_route
+잠깐 전화 걸어줘 좀 알려줘,unknown
+종로3가역에서 서울역까지 아직 지하철 다녀,subway_availability_check
+시장에서 신촌오거리정류장까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+시청역에서 홍대거리까지 환승 적은 경로 알려줘,route_search
+노량진역정류장에서 여의도역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+왕십리역에서 출발하면 동대문시장까지 막차 가능해,last_train_check
+노량진역에서 사당역까지 지금 지하철로 이동 가능해,subway_availability_check
+세브란스병원 출발 을지로입구역 도착 경로 알려줘,route_search
+용산역에서 시청역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+합정역에서 용산역광장정류장까지 지하철 이용 가능해,subway_availability_check
+합정역에서 강남역까지 저상버스 이용 가능한 경로 알려줘,route_search
+합정역에서 홍대입구역정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+근처 병원에서 교대역까지 이동 경로 추천해줘,route_search
+용산역에서 강남역중앙차로까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+신촌역에서 숙대입구역정류장 가는 마지막 지하철 알려줘,last_train_check
+동대문역에서 동대문역사문화공원정류장까지 지하철이 지금 운행 중이야,subway_availability_check
+오늘 동대문시장에서 시장까지 막차 끝났어,last_train_check
+주민센터에서 서울역버스환승센터까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+오늘 오늘 운세 알려줘 궁금해,unknown
+주민센터에서 건대입구역까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+성수역에서 집까지 버스 막차 남았는지 알려줘,last_train_check
+용산전자상가에서 근처 병원까지 막차 종료됐는지 알려줘,last_train_check
+홍대입구역정류장에서 숙명여대정문까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+동대문역에서 서울역까지 지하철이 지금 운행 중이야,subway_availability_check
+혹시 영어 단어 외워줘 궁금해,unknown
+강남역중앙차로에서 숙대입구역정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+세브란스병원에서 고속터미널정류장까지 가는 막차 알려줘,last_train_check
+숙명여대정문에서 합정역정류장까지 아직 지하철 다녀,subway_availability_check
+잠깐 내일 시험 범위 알려줘 알려줘,unknown
+약국에서 주민센터까지 이동 방법 알려줘,route_search
+종로2가정류장에서 홍대입구역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+합정역정류장에서 여의도공원까지 어르신이 가기 쉬운 길 알려줘,route_search
+집에서 세브란스병원 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+합정역정류장에서 서울역까지 지금 가도 막차 탈 수 있어,last_train_check
+서울역광장에서 약국까지 지하철 대신 버스 타야 해,subway_availability_check
+서울시청에서 약국까지 저상버스 이용 가능한 경로 알려줘,route_search
+합정역에서 숙대입구역정류장까지 버스 막차 남았는지 알려줘,last_train_check
+종로3가역에서 숙대입구역까지 지하철 이용 가능해,subway_availability_check
+고속터미널정류장에서 여의도환승센터까지 지금 버스라도 탈 수 있어,alternative_route
+교대역에서 잠실역까지 지금 지하철 이용해도 돼,subway_availability_check
+근처 병원에서 사당역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+동대문역에서 여의도환승센터까지 막차 남았어,last_train_check
+숙대입구역에서 사당역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+왕십리역에서 서울시청까지 마지막 버스 시간 알려줘,last_train_check
+잠깐 근처 카페 추천해줘 궁금해,unknown
+주민센터에서 종로3가역까지 지금 지하철 탈 수 있어,subway_availability_check
+서울시청에서 동대문역사문화공원정류장까지 제일 쉬운 길 알려줘,route_search
+사당역에서 서울시청까지 지금 버스라도 탈 수 있어,alternative_route
+숙명여대정문에서 집까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+노량진역정류장에서 잠실역까지 지금 버스라도 탈 수 있어,alternative_route
+동대문역사문화공원정류장에서 숙명여대정문까지 지금 가도 막차 탈 수 있어,last_train_check
+지금 숙대입구역정류장에서 시청역까지 막차 탈 수 있어,last_train_check
+합정역정류장에서 약국까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+용산전자상가에서 왕십리역정류장까지 안내해줘,route_search
+서울역버스환승센터에서 건대입구역까지 계단 적은 길로 알려줘,route_search
+혹시 오늘 뭐 입을까 알려줘,unknown
+서울역버스환승센터에서 용산역광장정류장까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+서울역광장에서 종로2가정류장까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+신촌역에서 용산전자상가까지 빠르게 가는 방법 알려줘,route_search
+숙대입구역에서 건대입구역까지 막차 확인해줘,last_train_check
+성수역에서 서울역버스환승센터까지 지금 지하철로 이동 가능해,subway_availability_check
+용산역에서 근처 병원까지 저상버스 이용 가능한 경로 알려줘,route_search
+주민센터에서 용산역까지 마지막 열차 시간이 언제야,last_train_check
+잠깐 심심해 궁금해,unknown
+숙대입구역정류장에서 남영역정류장까지 막차 시간이 언제야,last_train_check
+건대입구역정류장에서 시청역까지 막차 종료됐는지 알려줘,last_train_check
+집에서 합정역정류장까지 새벽에 이동할 방법 알려줘,alternative_route
+고속터미널역에서 동대문역사문화공원정류장까지 막차 종료됐는지 알려줘,last_train_check
+노량진역정류장에서 동대문시장까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+신촌역 근처에서 고속터미널역까지 갈 수 있는 방법 알려줘,route_search
+종로2가정류장에서 서울역까지 지금 지하철 탈 수 있어,subway_availability_check
+세브란스병원에서 용산역까지 걷기 적은 경로 알려줘,route_search
+시청역에서 홍대거리까지 마지막 열차 시간이 언제야,last_train_check
+용산전자상가에서 서울역광장 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+혹시 영화 추천해줘 해줄 수 있어,unknown
+내일 시험 범위 알려줘 해줄 수 있어,unknown
+왕십리역정류장에서 합정역까지 현재 지하철 상태 알려줘,subway_availability_check
+고속터미널역에서 사당역까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+용산역에서 노량진역정류장까지 지하철이 지금 운행 중이야,subway_availability_check
+종로3가역 근처에서 남영역정류장까지 갈 수 있는 방법 알려줘,route_search
+시장에서 학교까지 이동 방법 알려줘,route_search
+건대입구역정류장에서 용산전자상가까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+잠깐 유튜브 틀어줘 좀 알려줘,unknown
+음 점심 메뉴 추천해줘,unknown
+동대문역에서 서울역광장까지 지금 지하철로 이동 가능해,subway_availability_check
+학교에서 왕십리역정류장까지 마지막 버스 시간 알려줘,last_train_check
+고속터미널역에서 동대문시장까지 지금 지하철로 이동 가능해,subway_availability_check
+집 방향 막차 아직 남아 있어,last_train_check
+음 점심 메뉴 추천해줘 좀 알려줘,unknown
+용산역광장정류장에서 고속터미널역까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+학교에서 을지로입구역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+노량진역정류장에서 합정역정류장까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+건대입구역에서 잠실역까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+노량진역에서 동대문역까지 막차 종료됐는지 알려줘,last_train_check
+오늘 고속터미널정류장에서 강남성모병원까지 막차 끝났어,last_train_check
+고속터미널역에서 시청역까지 현재 지하철 상태 알려줘,subway_availability_check
+지금 출발하면 을지로입구역까지 막차 탈 수 있나요,last_train_check
+숙명여대정문에서 홍대입구역정류장까지 막차 남았어,last_train_check
+근처 병원에서 여의도환승센터까지 노인이 이동하기 편한 길 알려줘,route_search
+숙대입구역에서 남대문시장까지 지하철 이용 가능해,subway_availability_check
+동대문역사문화공원정류장에서 약국 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+집에서 서울역광장까지 가는 길 알려줘,route_search
+숙명여대정문에서 홍대거리까지 이 시간에도 지하철 가능해,subway_availability_check
+동대문역에서 강남역중앙차로까지 어떻게 가나요,route_search
+잠깐 영화 추천해줘 부탁해,unknown
+홍대입구역정류장에서 을지로입구역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+고속터미널역에서 강남역까지 지금 버스라도 탈 수 있어,alternative_route
+저기 학교 과제 알려줘,unknown
+사당역에서 고속터미널역까지 마지막 버스 시간 알려줘,last_train_check
+여의도환승센터에서 홍대입구역정류장까지 막차 확인해줘,last_train_check
+교대역에서 을지로입구역까지 버스 막차 남았는지 알려줘,last_train_check
+숙대입구역에서 여의도공원까지 막차 종료됐는지 알려줘,last_train_check
+전화 걸어줘 궁금해,unknown
+을지로입구역에서 여의도공원까지 어떻게 가나요,route_search
+교대역에서 종로2가정류장까지 계단 적은 길로 알려줘,route_search
+왕십리역에서 서울시청까지 지금 버스라도 탈 수 있어,alternative_route
+근처 병원에서 을지로입구역까지 걷기 적은 경로 알려줘,route_search
+남영역정류장에서 합정역정류장까지 막차 남았어,last_train_check
+성수역에서 여의도공원까지 환승 적은 경로 알려줘,route_search
+숙명여대정문에서 홍대입구역정류장 가는 마지막 지하철 알려줘,last_train_check
+교대역 출발 고속터미널역 도착 경로 알려줘,route_search
+홍대입구역정류장에서 강남역중앙차로까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+동대문시장에서 노량진역정류장까지 대체 경로 추천해줘,alternative_route
+동대문시장에서 홍대거리까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+강남역중앙차로에서 시청역까지 아직 지하철 다녀,subway_availability_check
+을지로입구역에서 시장까지 지하철 대신 버스 타야 해,subway_availability_check
+숙대입구역정류장에서 서울역버스환승센터 가는 마지막 지하철 알려줘,last_train_check
+여의도환승센터에서 용산전자상가까지 새벽에 이동할 방법 알려줘,alternative_route
+용산역에서 홍대거리까지 지하철 이용 가능해,subway_availability_check
+강남역에서 세브란스병원까지 지금 지하철 탈 수 있어,subway_availability_check
+음 내일 시험 범위 알려줘 알려줘,unknown
+지금 출발하면 고속터미널정류장까지 막차 탈 수 있나요,last_train_check
+학교에서 건대입구역정류장까지 가고 싶어요,route_search
+강남역에서 남영역정류장까지 빠르게 가는 방법 알려줘,route_search
+오늘 버스 기사님 이름 알려줘 해줄 수 있어,unknown
+서울역버스환승센터에서 종로2가정류장까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+홍대입구역정류장에서 시장까지 지하철 운행 여부 알려줘,subway_availability_check
+신촌역에서 왕십리역까지 지금 지하철 이용해도 돼,subway_availability_check
+노량진역에서 홍대거리까지 버스 대체 경로 알려줘,alternative_route
+신촌역에서 서울역버스환승센터까지 마지막 열차 시간이 언제야,last_train_check
+건대입구역정류장에서 여의도환승센터까지 막차 시간이 언제야,last_train_check
+합정역정류장에서 강남역까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+강남역에서 출발해서 교대역로 가는 경로 알려줘,route_search
+숙명여대정문에서 노량진역정류장까지 지하철이 끝났으면 다른 방법 알려줘,alternative_route
+시청역에서 근처 병원까지 계단 적은 길로 알려줘,route_search
+홍대거리에서 학교까지 지금 가도 막차 탈 수 있어,last_train_check
+고속터미널역에서 남대문시장까지 어르신이 가기 쉬운 길 알려줘,route_search
+숙대입구역정류장에서 강남성모병원까지 막차 종료됐는지 알려줘,last_train_check
+사당역에서 고속터미널정류장까지 지금 가도 막차 탈 수 있어,last_train_check
+서울시청에서 을지로입구역까지 막차 시간이 언제야,last_train_check
+세브란스병원에서 합정역정류장까지 어르신이 가기 쉬운 길 알려줘,route_search
+강남역에서 용산역까지 지하철이 지금 운행 중이야,subway_availability_check
+잠실역에서 세브란스병원까지 지하철 아직 끊기지 않았어,subway_availability_check
+동대문역사문화공원정류장에서 건대입구역까지 걷기 적은 경로 알려줘,route_search
+동대문시장에서 주민센터까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+숙명여대정문에서 합정역정류장까지 현재 지하철 상태 알려줘,subway_availability_check
+노량진역 막차 시간이 궁금해,last_train_check
+서울역에서 여의도공원까지 노인이 이동하기 편한 길 알려줘,route_search
+숙명여대정문에서 시장까지 환승 적은 경로 알려줘,route_search
+성수역에서 서울역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+건대입구역에서 신촌역까지 어르신이 가기 쉬운 길 알려줘,route_search
+동대문역에서 용산역까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+숙대입구역정류장에서 고속터미널정류장까지 이 시간에도 지하철 가능해,subway_availability_check
+왕십리역에서 강남성모병원까지 지하철 운행 상태 확인해줘,subway_availability_check
+남영역정류장에서 고속터미널정류장까지 막차 끝나면 어떻게 이동해야 해,alternative_route
+오늘 남영역정류장에서 남대문시장까지 막차 끝났어,last_train_check
+종로2가정류장에서 건대입구역까지 택시 말고 갈 수 있는 방법 있어,alternative_route
+주민센터에서 노량진역까지 마지막 버스 시간 알려줘,last_train_check
+여의도공원에서 숙대입구역정류장까지 어르신이 가기 쉬운 길 알려줘,route_search
+맛집 찾아줘 좀 알려줘,unknown
+강남성모병원에서 사당역까지 지하철 운행 여부 알려줘,subway_availability_check
+홍대입구역에서 서울역까지 버스 대체 경로 알려줘,alternative_route
+홍대입구역에서 여의도역까지 막차 종료됐는지 알려줘,last_train_check
+서울시청에서 왕십리역정류장까지 막차 끊겼으면 어떻게 가야 해,alternative_route
+강남역중앙차로에서 시청역까지 새벽에 이동할 방법 알려줘,alternative_route
+지금 왕십리역에서 여의도역까지 막차 탈 수 있어,last_train_check
+종로3가역 근처에서 동대문역사문화공원정류장까지 갈 수 있는 방법 알려줘,route_search
+동대문역에서 잠실역까지 가는 막차 알려줘,last_train_check
+용산전자상가에서 성수역까지 빠르게 가는 방법 알려줘,route_search
+동대문시장에서 서울역광장까지 지하철 대신 버스 타야 해,subway_availability_check
+지금 고속터미널역에서 종로3가역까지 막차 탈 수 있어,last_train_check
+주민센터에서 건대입구역정류장 가는 마지막 지하철 알려줘,last_train_check
+지금 학교에서 강남성모병원까지 막차 탈 수 있어,last_train_check
+시청역에서 동대문역사문화공원정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+왕십리역정류장에서 을지로입구역까지 저상버스 이용 가능한 경로 알려줘,route_search
+신촌오거리정류장에서 잠실역까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+오늘 건대입구역정류장에서 여의도공원까지 막차 끝났어,last_train_check
+여의도환승센터에서 교대역까지 지하철을 이용할 수 있는지 알고 싶어,subway_availability_check
+서울역에서 시청역까지 빠르게 가는 방법 알려줘,route_search
+집에서 서울시청까지 막차 시간이 언제야,last_train_check
+홍대입구역에서 집까지 대체 경로 추천해줘,alternative_route
+홍대입구역에서 서울역광장까지 버스로 갈 수 있는 다른 경로 알려줘,alternative_route
+남대문시장에서 숙명여대정문까지 빠르게 가는 방법 알려줘,route_search
+강남성모병원에서 용산역광장정류장까지 대체 경로 추천해줘,alternative_route
+저기 오늘 기분이 안 좋아 궁금해,unknown
+동대문역에서 여의도환승센터까지 이 시간에 지하철 운행해,subway_availability_check
+잠깐 점심 메뉴 추천해줘,unknown
+고속터미널정류장에서 집까지 가고 싶어요,route_search
+학교에서 노량진역까지 대체 경로 추천해줘,alternative_route
+숙대입구역 막차 시간이 궁금해,last_train_check
+합정역정류장에서 왕십리역정류장까지 버스 막차 남았는지 알려줘,last_train_check
+고속터미널정류장에서 건대입구역정류장까지 이동 경로 추천해줘,route_search
+숙대입구역정류장에서 여의도역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+성수역에서 여의도공원까지 현재 지하철 이용 가능한지 알려줘,subway_availability_check
+신촌오거리정류장에서 합정역정류장까지 지하철 운행 여부 알려줘,subway_availability_check
+집에서 신촌오거리정류장까지 지하철 이용 가능해,subway_availability_check
+음 숙제가 뭐였지 알려줘,unknown
+홍대입구역정류장에서 숙명여대정문까지 버스 대체 경로 알려줘,alternative_route
+홍대입구역정류장에서 성수역 가는 지하철 마지막 운행 시간 알려줘,last_train_check
+숙대입구역정류장에서 주민센터까지 교통이 끊겼을 때 갈 수 있는 방법 알려줘,alternative_route
+고속터미널역에서 학교까지 밤늦게 갈 수 있는 방법 알려줘,alternative_route
+집에서 합정역까지 지하철 운행 상태 확인해줘,subway_availability_check
+지금 출발하면 강남역까지 막차 탈 수 있나요,last_train_check
+왕십리역에서 출발해서 주민센터로 가는 경로 알려줘,route_search
+을지로입구역에서 남영역정류장까지 지하철 이용 가능해,subway_availability_check
+시장에서 고속터미널정류장까지 어르신이 가기 쉬운 길 알려줘,route_search
+여의도환승센터에서 종로2가정류장까지 저상버스 이용 가능한 경로 알려줘,route_search
+동대문역사문화공원정류장에서 홍대거리까지 지하철 이용 가능해,subway_availability_check
+학교에서 시장까지 지하철이 지금 운행 중이야,subway_availability_check
+교대역에서 서울역버스환승센터까지 지하철 아직 끊기지 않았어,subway_availability_check
+여의도역에서 동대문역까지 제일 쉬운 길 알려줘,route_search
+왕십리역에서 합정역까지 계단 적은 길로 알려줘,route_search
+학교에서 시청역까지 다른 교통수단으로 가는 방법 알려줘,alternative_route
+숙대입구역정류장에서 왕십리역정류장까지 이동 경로 추천해줘,route_search
+동대문역에서 숙대입구역정류장까지 지하철이 안 되면 버스 경로 알려줘,alternative_route
+주민센터에서 합정역까지 지하철로 갈 수 있는 상황이야,subway_availability_check
+성수역에서 잠실역까지 지하철 운행 중인지 확인해줘,subway_availability_check
+혹시 휴대폰 배터리 얼마나 남았어 부탁해,unknown
+오늘 심심해 좀 알려줘,unknown
+세브란스병원 출발 홍대입구역정류장 도착 경로 알려줘,route_search
+사당역에서 성수역까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+서울역버스환승센터에서 강남역중앙차로까지 지하철 운행 여부 알려줘,subway_availability_check
+지금 출발하면 여의도환승센터까지 막차 탈 수 있나요,last_train_check
+홍대입구역에서 세브란스병원까지 지하철이 없으면 버스나 택시 알려줘,alternative_route
+숙명여대정문에서 교대역까지 지하철 대신 버스 타야 해,subway_availability_check
+종로2가정류장에서 동대문시장까지 대체 경로 추천해줘,alternative_route
+서울역광장에서 숙대입구역까지 지하철 탈 수 있는 시간인지 확인해줘,subway_availability_check
+용산역광장정류장에서 건대입구역정류장까지 다른 방법으로 목적지까지 가고 싶어,alternative_route
+왕십리역에서 을지로입구역까지 가는 길 알려줘,route_search
+종로3가역에서 약국까지 노인이 이동하기 편한 길 알려줘,route_search
+강남역에서 고속터미널역까지 막차 이후 이동 방법 알려줘,alternative_route
+지금 출발하면 종로3가역까지 막차 탈 수 있나요,last_train_check
+학교에서 동대문시장까지 지금 지하철 탈 수 있어,subway_availability_check
