@@ -7,10 +7,13 @@
 - 음성 → 텍스트 변환
 - Module B 전달용 JSON 생성
 
+---
+
 ## 실행 방법
 
 ```bash
 python module_a/speech_to_text.py
+```
 
 ---
 
