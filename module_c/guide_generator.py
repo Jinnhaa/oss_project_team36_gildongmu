@@ -14,6 +14,7 @@ def generate_guide(b_result: dict) -> dict:
         scenario = data.get("scenario", "unknown")
 
         handlers = {
+            "realtime_route_found": _guide_realtime_route_found,
             "subway_available": _guide_subway_available,
             "last_train_ended": _guide_last_train_ended,
             "bus_alternative":  _guide_bus_alternative,
@@ -29,6 +30,53 @@ def generate_guide(b_result: dict) -> dict:
 
 
 # ── 시나리오별 안내문 생성 ──────────────────────────────────────────────────
+def _guide_realtime_route_found(data: dict) -> dict:
+    start = data.get("start", "출발지")
+    destination = data.get("destination", "목적지")
+    summary = data.get("route_summary", {})
+
+    time_ = summary.get("estimated_time", "알 수 없음")
+    transfer = summary.get("transfer", "")
+    payment = summary.get("payment")
+    route_steps = summary.get("route_steps", [])
+
+    guide_steps = []
+
+    if route_steps:
+        guide_steps.append("천천히 순서대로 안내해드릴게요.")
+
+        for index, step in enumerate(route_steps, start=1):
+            description = step.get("description")
+            if description:
+                guide_steps.append(f"{index}. {description}")
+    else:
+        transport = summary.get("transport", "대중교통")
+        guide_steps.append("천천히 순서대로 안내해드릴게요.")
+        guide_steps.append(f"1. {start}에서 {transport}을 이용해 이동하세요.")
+        guide_steps.append(f"2. {destination}에서 내리세요.")
+
+    guide_steps.append(f"예상 이동 시간은 {time_}입니다.")
+
+    if transfer:
+        guide_steps.append(f"환승 정보는 {transfer}입니다.")
+
+    if payment is not None:
+        guide_steps.append(f"예상 요금은 {payment}원입니다.")
+
+    guide_steps.append("이동 중 길이 헷갈리면 다시 한 번 말씀해 주세요.")
+
+    voice_text = (
+        f"{start}에서 {destination}까지 이동 경로를 안내해드릴게요. "
+        + " ".join(guide_steps)
+    )
+
+    return _success_response(
+        title="경로를 안내해드릴게요",
+        summary_message=f"{start}에서 {destination}까지 이동 경로를 찾았습니다. 천천히 안내해드릴게요.",
+        guide_steps=guide_steps,
+        voice_text=voice_text,
+        screen_type="route_available",
+    )
 
 def _guide_subway_available(data: dict) -> dict:
     start       = data.get("start", "출발지")
