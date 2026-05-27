@@ -20,6 +20,16 @@ except ImportError:
 
 NLP_MODEL = None
 
+try:
+    from module_b.predict_bert_intent import predict_intent
+except ImportError:
+    predict_intent = None
+
+try:
+    from module_b.realtime_transport_api import get_realtime_transport_info
+except ImportError:
+    get_realtime_transport_info = None
+
 
 def load_station_list(csv_path="module_b/stations.csv"):
     """
@@ -179,7 +189,7 @@ def classify_intent(text):
     # 3. 지하철 이용 가능 여부 확인
     if "지하철" in text and ("가능" in text or "탈 수" in text or "이용" in text):
         return "subway_availability_check"
-
+    
     # 4. 일반 경로 탐색
     if (
         "가고 싶" in text or
@@ -198,6 +208,44 @@ def classify_intent(text):
         return nlp_intent
 
     return "route_search"
+
+def classify_intent_with_bert(text, confidence_threshold=0.6):
+    """
+    BERT 기반 의도 분류를 우선 사용하고,
+    모델이 없거나 confidence가 낮은 경우 기존 키워드 기반 classify_intent로 fallback한다.
+    """
+
+    if predict_intent is None:
+        return {
+            "intent": classify_intent(text),
+            "confidence": None,
+            "method": "keyword_fallback"
+        }
+
+    try:
+        bert_result = predict_intent(text)
+        intent = bert_result["intent"]
+        confidence = bert_result["confidence"]
+
+        if confidence < confidence_threshold:
+            return {
+                "intent": classify_intent(text),
+                "confidence": confidence,
+                "method": "keyword_fallback_low_confidence"
+            }
+
+        return {
+            "intent": intent,
+            "confidence": confidence,
+            "method": "bert"
+        }
+
+    except Exception:
+        return {
+            "intent": classify_intent(text),
+            "confidence": None,
+            "method": "keyword_fallback_error"
+        }
 
 
 def load_routes(csv_path="module_b/routes.csv"):
@@ -242,6 +290,26 @@ def find_route(start, destination, routes):
 
     return None
 
+def convert_api_result_to_route(api_result, start, destination):
+    """
+    실시간 교통정보 API 결과를 기존 routes.csv 기반 route 형식과 유사하게 변환한다.
+
+    현재 API 연동 초기 단계에서는 API 응답 구조가 확정되지 않았기 때문에,
+    필요한 필드가 없는 경우 기본값을 사용한다.
+    """
+
+    data = api_result.get("data", {})
+
+    return {
+        "start": start,
+        "end": destination,
+        "transport": data.get("transport", "subway"),
+        "scenario": data.get("scenario", "subway_available"),
+        "subway_status": data.get("subway_status", "available"),
+        "last_train_status": data.get("last_train_status", "available"),
+        "estimated_time": data.get("estimated_time", "실시간 정보 기준"),
+        "transfer": data.get("transfer", "실시간 정보 기준")
+    }
 
 def make_error(code, message):
     """
@@ -284,7 +352,8 @@ def analyze_route(a_result):
         )
 
     start, destination = extract_locations(text)
-    intent = classify_intent(text)
+    intent_result = classify_intent_with_bert(text)
+    intent = intent_result["intent"]
 
     if destination is None:
         return make_error(
@@ -300,19 +369,32 @@ def analyze_route(a_result):
 
     routes = load_routes()
 
-    if routes is None:
-        return make_error(
-            "B_DATA_LOAD_FAILED",
-            "교통 데이터 파일을 불러오지 못했습니다."
-        )
+    route = None
+    transport_source = "routes_csv_fallback"
 
-    route = find_route(start, destination, routes)
+    if get_realtime_transport_info is not None:
+        api_result = get_realtime_transport_info(start, destination, intent)
+
+        if api_result.get("status") == "success":
+            route = api_result.get("data")
+            transport_source = "realtime_api"
 
     if route is None:
-        return make_error(
-            "B_ROUTE_NOT_FOUND",
-            "해당 출발지와 목적지에 맞는 경로 정보를 찾을 수 없습니다."
-        )
+        routes = load_routes()
+
+        if routes is None:
+            return make_error(
+                "B_DATA_LOAD_FAILED",
+                "교통 데이터 파일을 불러오지 못했습니다."
+            )
+
+        route = find_route(start, destination, routes)
+
+        if route is None:
+            return make_error(
+                "B_ROUTE_NOT_FOUND",
+                "해당 출발지와 목적지에 맞는 경로 정보를 찾을 수 없습니다."
+            )
 
     result = {
         "status": "success",
@@ -321,17 +403,23 @@ def analyze_route(a_result):
             "start": start,
             "destination": destination,
             "intent": intent,
-            "scenario": route["scenario"],
-            "subway_status": route["subway_status"],
-            "last_train_status": route["last_train_status"],
-            "alternative_needed": route["transport"] != "subway",
-            "recommended_transport": route["transport"],
+            "scenario": route.get("scenario"),
+            "intent_confidence": intent_result.get("confidence"),
+            "intent_method": intent_result.get("method"),
+            "subway_status": route.get("subway_status"),
+            "last_train_status": route.get("last_train_status"),
+            "alternative_needed": route.get("transport") != "subway",
+            "recommended_transport": route.get("transport"),
+            "transport_source": transport_source,
             "route_summary": {
-                "start": route["start"],
-                "end": route["end"],
-                "transport": route["transport"],
-                "estimated_time": route["estimated_time"],
-                "transfer": route["transfer"]
+                "start": start,
+                "end": destination,
+                "transport": route.get("transport"),
+                "estimated_time": route.get("estimated_time"),
+                "transfer": route.get("transfer"),
+                "payment": route.get("payment"),
+                "transport_steps": route.get("transport_steps", []),
+                "route_steps": route.get("route_steps", [])
             }
         },
         "error": None

@@ -4,3 +4,9 @@ gTTS
 gradio
 openai-whisper
 torch
+transformers
+datasets
+pandas
+numpy
+accelerate
+requests

@@ -54,13 +54,3 @@ Windows 설치 예시:
 ```bash
 winget install ffmpeg
 ```
-
-## 실행 예시
-
-```python
-from module_a.speech_to_text import process_input
-
-result = process_input(audio_path="module_a/sample_audio/test.wav")
-
-print(result)
-```
