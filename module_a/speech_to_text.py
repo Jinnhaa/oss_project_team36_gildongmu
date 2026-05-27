@@ -46,7 +46,7 @@ def speech_to_text(audio_path):
             }
         }
 
-    # Whisper STT 수행
+    # Whisper 음성 인식
     try:
         result = model.transcribe(audio_path)
 
@@ -86,7 +86,7 @@ def speech_to_text(audio_path):
 
 def process_input(audio_path=None, text=None):
     """
-    app.py 통합 실행용 wrapper 함수
+    Module A 통합 실행용 wrapper 함수
     """
 
     # 텍스트 직접 입력 처리
