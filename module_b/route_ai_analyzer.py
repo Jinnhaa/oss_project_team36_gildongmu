@@ -117,7 +117,7 @@ def classify_intent(text):
         return "alternative_route"
 
     if "지하철" in text and ("가능" in text or "탈 수" in text):
-        return "subway_availability_check"
+        return "way_availability_check"
 
     return "route_search"
 
@@ -288,7 +288,7 @@ def analyze_route(a_result):
         api_result = get_realtime_transport_info(start, destination, intent)
 
         if api_result.get("status") == "success":
-            route = convert_api_result_to_route(api_result, start, destination)
+            route = api_result.get("data")
             transport_source = "realtime_api"
 
     if route is None:
@@ -315,20 +315,23 @@ def analyze_route(a_result):
             "start": start,
             "destination": destination,
             "intent": intent,
-            "scenario": route["scenario"],
-            "intent_confidence": intent_result["confidence"],
-            "intent_method": intent_result["method"],
-            "subway_status": route["subway_status"],
-            "last_train_status": route["last_train_status"],
-            "alternative_needed": route["transport"] != "subway",
-            "recommended_transport": route["transport"],
+            "scenario": route.get("scenario"),
+            "intent_confidence": intent_result.get("confidence"),
+            "intent_method": intent_result.get("method"),
+            "subway_status": route.get("subway_status"),
+            "last_train_status": route.get("last_train_status"),
+            "alternative_needed": route.get("transport") != "subway",
+            "recommended_transport": route.get("transport"),
             "transport_source": transport_source,
             "route_summary": {
-                "start": route["start"],
-                "end": route["end"],
-                "transport": route["transport"],
-                "estimated_time": route["estimated_time"],
-                "transfer": route["transfer"]
+                "start": start,
+                "end": destination,
+                "transport": route.get("transport"),
+                "estimated_time": route.get("estimated_time"),
+                "transfer": route.get("transfer"),
+                "payment": route.get("payment"),
+                "transport_steps": route.get("transport_steps", []),
+                "route_steps": route.get("route_steps", [])
             }
         },
         "error": None

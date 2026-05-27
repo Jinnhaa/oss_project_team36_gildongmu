@@ -6,6 +6,9 @@ Module B - ODsay 대중교통 길찾기 API 연동 모듈
 2. ODsay 대중교통 길찾기 API를 호출한다.
 3. API 결과를 route_ai_analyzer.py에서 사용할 수 있는 형식으로 변환한다.
 4. API 키 누락, 좌표 누락, 호출 실패 시 error를 반환하여 routes.csv fallback이 가능하게 한다.
+
+실행 전:
+export ODSAY_API_KEY="발급받은_ODsay_API_Key"
 """
 
 import csv
@@ -64,8 +67,116 @@ def load_station_coordinates():
 
 
 def get_station_coordinate(station_name):
+    """
+    역 이름으로 좌표를 조회한다.
+    """
+
     station_map = load_station_coordinates()
     return station_map.get(station_name)
+
+
+def get_lane_name(sub_path):
+    """
+    ODsay subPath의 lane 정보를 읽어 지하철 호선/버스 번호를 반환한다.
+    """
+
+    lane_list = sub_path.get("lane", [])
+
+    if not lane_list:
+        return ""
+
+    first_lane = lane_list[0]
+
+    if "name" in first_lane:
+        return first_lane.get("name", "")
+
+    if "busNo" in first_lane:
+        return first_lane.get("busNo", "")
+
+    return ""
+
+
+def build_route_step(sub_path):
+    """
+    ODsay subPath 하나를 사용자 안내용 route_step으로 변환한다.
+
+    trafficType:
+    1 = 지하철
+    2 = 버스
+    3 = 도보
+    """
+
+    traffic_type = sub_path.get("trafficType")
+
+    if traffic_type == 1:
+        subway_name = get_lane_name(sub_path) or "지하철"
+        start_name = sub_path.get("startName", "")
+        end_name = sub_path.get("endName", "")
+        station_count = sub_path.get("stationCount", "")
+        section_time = sub_path.get("sectionTime", "")
+
+        description = f"{start_name}에서 {subway_name} 승차 후 {end_name}에서 하차"
+
+        if station_count not in ("", None):
+            description += f" ({station_count}개 역 이동)"
+
+        return {
+            "type": "subway",
+            "transport": subway_name,
+            "start": start_name,
+            "end": end_name,
+            "station_count": station_count,
+            "section_time": section_time,
+            "description": description,
+        }
+
+    if traffic_type == 2:
+        bus_name = get_lane_name(sub_path) or "버스"
+        start_name = sub_path.get("startName", "")
+        end_name = sub_path.get("endName", "")
+        station_count = sub_path.get("stationCount", "")
+        section_time = sub_path.get("sectionTime", "")
+
+        description = f"{start_name}에서 {bus_name}번 버스 승차 후 {end_name}에서 하차"
+
+        if station_count not in ("", None):
+            description += f" ({station_count}개 정류장 이동)"
+
+        return {
+            "type": "bus",
+            "transport": bus_name,
+            "start": start_name,
+            "end": end_name,
+            "station_count": station_count,
+            "section_time": section_time,
+            "description": description,
+        }
+
+    if traffic_type == 3:
+        distance = sub_path.get("distance", "")
+        section_time = sub_path.get("sectionTime", "")
+
+        description = "도보 이동"
+
+        if section_time not in ("", None):
+            description += f" 약 {section_time}분"
+
+        if distance not in ("", None):
+            description += f" ({distance}m)"
+
+        return {
+            "type": "walk",
+            "transport": "도보",
+            "distance": distance,
+            "section_time": section_time,
+            "description": description,
+        }
+
+    return {
+        "type": "unknown",
+        "transport": "알 수 없음",
+        "description": "알 수 없는 이동 구간",
+    }
 
 
 def summarize_odsay_path(api_json):
@@ -91,7 +202,9 @@ def summarize_odsay_path(api_json):
     last_end_station = info.get("lastEndStation", "")
 
     sub_paths = first_path.get("subPath", [])
+
     transport_steps = []
+    route_steps = []
 
     for sub_path in sub_paths:
         traffic_type = sub_path.get("trafficType")
@@ -103,7 +216,11 @@ def summarize_odsay_path(api_json):
         elif traffic_type == 3:
             transport_steps.append("도보")
 
+        route_step = build_route_step(sub_path)
+        route_steps.append(route_step)
+
     unique_steps = []
+
     for step in transport_steps:
         if not unique_steps or unique_steps[-1] != step:
             unique_steps.append(step)
@@ -131,6 +248,7 @@ def summarize_odsay_path(api_json):
         "first_start_station": first_start_station,
         "last_end_station": last_end_station,
         "transport_steps": unique_steps,
+        "route_steps": route_steps,
     }
 
 
