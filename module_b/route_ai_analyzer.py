@@ -11,6 +11,10 @@ Module B: 장소·의도 분석 및 교통 판단 모듈
 
 import csv
 from pathlib import Path
+try:
+    from module_b.predict_bert_intent import predict_intent
+except ImportError:
+    predict_intent = None
 
 
 def load_station_list(csv_path="module_b/stations.csv"):
@@ -111,6 +115,44 @@ def classify_intent(text):
 
     return "route_search"
 
+def classify_intent_with_bert(text, confidence_threshold=0.6):
+    """
+    BERT 기반 의도 분류를 우선 사용하고,
+    모델이 없거나 confidence가 낮은 경우 기존 키워드 기반 classify_intent로 fallback한다.
+    """
+
+    if predict_intent is None:
+        return {
+            "intent": classify_intent(text),
+            "confidence": None,
+            "method": "keyword_fallback"
+        }
+
+    try:
+        bert_result = predict_intent(text)
+        intent = bert_result["intent"]
+        confidence = bert_result["confidence"]
+
+        if confidence < confidence_threshold:
+            return {
+                "intent": classify_intent(text),
+                "confidence": confidence,
+                "method": "keyword_fallback_low_confidence"
+            }
+
+        return {
+            "intent": intent,
+            "confidence": confidence,
+            "method": "bert"
+        }
+
+    except Exception:
+        return {
+            "intent": classify_intent(text),
+            "confidence": None,
+            "method": "keyword_fallback_error"
+        }
+
 
 def load_routes(csv_path="module_b/routes.csv"):
     """
@@ -196,7 +238,8 @@ def analyze_route(a_result):
         )
 
     start, destination = extract_locations(text)
-    intent = classify_intent(text)
+    intent_result = classify_intent_with_bert(text)
+    intent = intent_result["intent"]
 
     if destination is None:
         return make_error(
@@ -234,6 +277,8 @@ def analyze_route(a_result):
             "destination": destination,
             "intent": intent,
             "scenario": route["scenario"],
+            "intent_confidence": intent_result["confidence"],
+            "intent_method": intent_result["method"],
             "subway_status": route["subway_status"],
             "last_train_status": route["last_train_status"],
             "alternative_needed": route["transport"] != "subway",
