@@ -127,3 +127,48 @@ recommended_transport
 route_summary.estimated_time
 route_summary.transfer
 scenario
+
+## 11. 오픈소스 NLP 기반 의도 분석
+
+Module B는 사용자 입력 문장의 의도를 분석하기 위해 오픈소스 NLP 라이브러리인 Sentence-Transformers를 활용한다.
+
+### 활용 오픈소스
+
+- 라이브러리: `sentence-transformers`
+- 활용 모델: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
+- 활용 목적: 사용자 입력 문장과 교통 상황 시나리오 문장 간 의미 유사도 계산
+
+### 의도 분석 방식
+
+사용자 입력 문장은 다음 순서로 분석된다.
+
+1. 명확한 키워드가 있는 경우 규칙 기반으로 먼저 분류한다.
+   - 막차
+   - 버스
+   - 대체 교통수단
+   - 지하철 이용 가능 여부
+
+2. 키워드만으로 판단하기 어려운 문장은 Sentence-Transformers를 활용해 의미 유사도를 계산한다.
+
+3. `scenario_prompts.csv`에 저장된 시나리오 문장과 사용자 입력 문장을 각각 벡터화한 뒤, cosine similarity를 계산한다.
+
+4. 가장 유사한 시나리오의 intent 값을 사용자 의도로 반환한다.
+
+### fallback 처리
+
+실행 환경에 `sentence-transformers`가 설치되어 있지 않은 경우에도 프로그램이 중단되지 않도록 기존 키워드 기반 의도 분석 방식으로 fallback 처리한다.
+
+### 테스트 결과
+
+오픈소스 NLP 기반 의도 분석 로직을 추가한 뒤에도 `test_cases.csv` 기준 15개 테스트가 모두 성공하였다.
+
+```text
+전체 테스트 수: 15
+성공: 15
+실패: 0
+
+설치 방법
+
+프로젝트 실행 전 필요한 패키지는 다음 명령어로 설치한다.
+
+python3 -m pip install -r requirements.txt
