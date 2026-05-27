@@ -11,10 +11,16 @@ Module B: 장소·의도 분석 및 교통 판단 모듈
 
 import csv
 from pathlib import Path
+
 try:
     from module_b.predict_bert_intent import predict_intent
 except ImportError:
     predict_intent = None
+
+try:
+    from module_b.realtime_transport_api import get_realtime_transport_info
+except ImportError:
+    get_realtime_transport_info = None
 
 
 def load_station_list(csv_path="module_b/stations.csv"):
@@ -196,6 +202,26 @@ def find_route(start, destination, routes):
 
     return None
 
+def convert_api_result_to_route(api_result, start, destination):
+    """
+    실시간 교통정보 API 결과를 기존 routes.csv 기반 route 형식과 유사하게 변환한다.
+
+    현재 API 연동 초기 단계에서는 API 응답 구조가 확정되지 않았기 때문에,
+    필요한 필드가 없는 경우 기본값을 사용한다.
+    """
+
+    data = api_result.get("data", {})
+
+    return {
+        "start": start,
+        "end": destination,
+        "transport": data.get("transport", "subway"),
+        "scenario": data.get("scenario", "subway_available"),
+        "subway_status": data.get("subway_status", "available"),
+        "last_train_status": data.get("last_train_status", "available"),
+        "estimated_time": data.get("estimated_time", "실시간 정보 기준"),
+        "transfer": data.get("transfer", "실시간 정보 기준")
+    }
 
 def make_error(code, message):
     """
@@ -255,19 +281,32 @@ def analyze_route(a_result):
 
     routes = load_routes()
 
-    if routes is None:
-        return make_error(
-            "B_DATA_LOAD_FAILED",
-            "교통 데이터 파일을 불러오지 못했습니다."
-        )
+    route = None
+    transport_source = "routes_csv_fallback"
 
-    route = find_route(start, destination, routes)
+    if get_realtime_transport_info is not None:
+        api_result = get_realtime_transport_info(start, destination, intent)
+
+        if api_result.get("status") == "success":
+            route = convert_api_result_to_route(api_result, start, destination)
+            transport_source = "realtime_api"
 
     if route is None:
-        return make_error(
-            "B_ROUTE_NOT_FOUND",
-            "해당 출발지와 목적지에 맞는 경로 정보를 찾을 수 없습니다."
-        )
+        routes = load_routes()
+
+        if routes is None:
+            return make_error(
+                "B_DATA_LOAD_FAILED",
+                "교통 데이터 파일을 불러오지 못했습니다."
+            )
+
+        route = find_route(start, destination, routes)
+
+        if route is None:
+            return make_error(
+                "B_ROUTE_NOT_FOUND",
+                "해당 출발지와 목적지에 맞는 경로 정보를 찾을 수 없습니다."
+            )
 
     result = {
         "status": "success",
@@ -283,6 +322,7 @@ def analyze_route(a_result):
             "last_train_status": route["last_train_status"],
             "alternative_needed": route["transport"] != "subway",
             "recommended_transport": route["transport"],
+            "transport_source": transport_source,
             "route_summary": {
                 "start": route["start"],
                 "end": route["end"],

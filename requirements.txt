@@ -9,3 +9,4 @@ datasets
 pandas
 numpy
 accelerate
+requests
