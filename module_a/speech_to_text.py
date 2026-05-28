@@ -11,7 +11,7 @@ def speech_to_text(audio_path):
     Whisper 기반 음성 → 텍스트 변환 함수
     """
 
-    # 입력값 확인
+    # 1. 입력값 확인
     if not audio_path:
         return {
             "status": "error",
@@ -22,7 +22,7 @@ def speech_to_text(audio_path):
             }
         }
 
-    # 파일 존재 여부 확인
+    # 2. 파일 존재 여부 확인
     if not os.path.exists(audio_path):
         return {
             "status": "error",
@@ -33,7 +33,7 @@ def speech_to_text(audio_path):
             }
         }
 
-    # 파일 형식 확인
+    # 3. 파일 형식 확인
     ext = os.path.splitext(audio_path)[1].lower()
 
     if ext not in SUPPORTED_FORMATS:
@@ -46,22 +46,11 @@ def speech_to_text(audio_path):
             }
         }
 
-    # Whisper 음성 인식
+    # 4. Whisper 음성 인식
     try:
         result = model.transcribe(audio_path)
 
         recognized_text = result["text"].strip()
-
-        # 빈 결과 처리
-        if not recognized_text:
-            return {
-                "status": "error",
-                "data": None,
-                "error": {
-                    "code": "A_STT_FAILED",
-                    "message": "음성 인식 결과가 비어 있습니다."
-                }
-            }
 
         return {
             "status": "success",
@@ -73,61 +62,24 @@ def speech_to_text(audio_path):
             "error": None
         }
 
-    except Exception:
+    # 5. 예외 처리
+    except Exception as e:
+        print("STT ERROR:", e)
+
         return {
             "status": "error",
             "data": None,
             "error": {
                 "code": "A_STT_FAILED",
-                "message": "음성 인식에 실패했습니다."
+                "message": str(e)
             }
         }
 
-
-def process_input(audio_path=None, text=None):
-    """
-    Module A 통합 실행용 wrapper 함수
-    """
-
-    # 텍스트 직접 입력 처리
-    if text:
-
-        cleaned_text = text.strip()
-
-        if not cleaned_text:
-            return {
-                "status": "error",
-                "data": None,
-                "error": {
-                    "code": "A_EMPTY_INPUT",
-                    "message": "텍스트 입력이 비어 있습니다."
-                }
-            }
-
-        return {
-            "status": "success",
-            "data": {
-                "recognized_text": cleaned_text,
-                "input_type": "text",
-                "audio_path": None
-            },
-            "error": None
-        }
-
-    # 음성 입력 처리
-    return speech_to_text(audio_path)
-
-
-# 단독 실행 테스트
-if __name__ == "__main__":
-
-    test_audio = "module_a/sample_audio/test.wav"
-
-    response = process_input(audio_path=test_audio)
-
-    print(response)
 
 def process_input(input_data):
+    """
+    앱 전체 연동용 입력 처리 함수
+    """
 
     try:
         input_type = input_data.get("input_type")
@@ -146,12 +98,28 @@ def process_input(input_data):
 
         return speech_to_text(audio_path)
 
-    except Exception:
+    except Exception as e:
+        print("PROCESS INPUT ERROR:", e)
+
         return {
             "status": "error",
             "data": None,
             "error": {
                 "code": "A_PROCESS_INPUT_FAILED",
-                "message": "입력 처리에 실패했습니다."
+                "message": str(e)
             }
         }
+
+
+# 단독 실행 테스트
+if __name__ == "__main__":
+
+    test_audio = "module_a/sample_audio/test.m4a"
+
+    response = process_input({
+        "input_type": "audio",
+        "audio_path": test_audio,
+        "text": None
+    })
+
+    print(response)
