@@ -126,3 +126,32 @@ if __name__ == "__main__":
     response = process_input(audio_path=test_audio)
 
     print(response)
+
+def process_input(input_data):
+
+    try:
+        input_type = input_data.get("input_type")
+
+        if input_type != "audio":
+            return {
+                "status": "error",
+                "data": None,
+                "error": {
+                    "code": "A_INVALID_INPUT_TYPE",
+                    "message": "audio 입력만 지원합니다."
+                }
+            }
+
+        audio_path = input_data.get("audio_path")
+
+        return speech_to_text(audio_path)
+
+    except Exception:
+        return {
+            "status": "error",
+            "data": None,
+            "error": {
+                "code": "A_PROCESS_INPUT_FAILED",
+                "message": "입력 처리에 실패했습니다."
+            }
+        }
