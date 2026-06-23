@@ -33,6 +33,8 @@
 * Gradio 기반 프로토타입 UI 제공
 
 ## 전체 동작 흐름
+<img width="823" height="767" alt="image" src="https://github.com/user-attachments/assets/087f463b-227a-4ec7-9e0e-bd92a2596adc" />
+
 
 ```text
 사용자 음성/텍스트 입력
