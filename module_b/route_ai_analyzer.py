@@ -30,6 +30,11 @@ try:
 except ImportError:
     get_realtime_transport_info = None
 
+try:
+    from module_b.predict_location_ner import predict_locations
+except ImportError:
+    predict_locations = None
+
 
 def load_station_list(csv_path="module_b/stations.csv"):
     """
@@ -326,6 +331,26 @@ def make_error(code, message):
     }
 
 
+def extract_locations_with_ai(text):
+    """
+    장소 추출 NER 모델을 우선 사용하고,
+    실패하면 기존 stations.csv 기반 extract_locations()로 fallback한다.
+    """
+
+    if predict_locations is not None:
+        ner_result = predict_locations(text)
+
+        if ner_result:
+            start = ner_result.get("start")
+            destination = ner_result.get("destination")
+
+            if start and destination:
+                return start, destination, "location_ner"
+
+    start, destination, location_method = extract_locations_with_ai(text)
+    return start, destination, "station_dictionary_fallback"
+
+
 def analyze_route(a_result):
     """
     Module A의 결과를 받아 장소·의도 분석 및 교통 판단을 수행한다.
@@ -351,7 +376,7 @@ def analyze_route(a_result):
             "분석할 문장이 없습니다."
         )
 
-    start, destination = extract_locations(text)
+    start, destination, location_method = extract_locations_with_ai(text)
     intent_result = classify_intent_with_bert(text)
     intent = intent_result["intent"]
 
@@ -406,6 +431,7 @@ def analyze_route(a_result):
             "scenario": route.get("scenario"),
             "intent_confidence": intent_result.get("confidence"),
             "intent_method": intent_result.get("method"),
+            "location_method": location_method,
             "subway_status": route.get("subway_status"),
             "last_train_status": route.get("last_train_status"),
             "alternative_needed": route.get("transport") != "subway",
