@@ -123,10 +123,10 @@ git lfs pull
 pip install -r requirements.txt
 ```
 
-ODsay API를 사용하는 경우 로컬 환경변수로 API Key를 설정합니다.
+로컬 환경변수로 ODsay API Key를 설정합니다(보고서에 작성했습니다).
 
 ```bash
-export ODSAY_API_KEY="발급받은 ODsay API Key"
+export ODSAY_API_KEY="보고서의 ODsay API Key"
 ```
 
 앱을 실행합니다.
@@ -135,11 +135,6 @@ export ODSAY_API_KEY="발급받은 ODsay API Key"
 PYTHONPATH=. python3 app.py
 ```
 
-실행 후 브라우저에서 아래 주소로 접속합니다.
-
-```text
-http://127.0.0.1:7860
-```
 
 ## 데모 문장 예시
 
