@@ -347,7 +347,7 @@ def extract_locations_with_ai(text):
             if start and destination:
                 return start, destination, "location_ner"
 
-    start, destination, location_method = extract_locations_with_ai(text)
+    start, destination = extract_locations(text)
     return start, destination, "station_dictionary_fallback"
 
 
