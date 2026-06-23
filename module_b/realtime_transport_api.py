@@ -312,10 +312,12 @@ def get_realtime_transport_info(start, destination, intent=None):
     }
 
     try:
+        odsay_referer = os.environ.get("ODSAY_REFERER", "http://localhost")
+        
         response = requests.get(
             ODSAY_API_URL,
             params=params,
-            headers={"Referer": "http://localhost"},
+            headers={"Referer": odsay_referer},
             timeout=10
         )
         response.raise_for_status()
