@@ -9,4 +9,6 @@ datasets
 pandas
 numpy
 accelerate
+requeststransformers
+seqeval
 requests
