@@ -1,174 +1,176 @@
 # Module B: 장소·의도 분석 및 교통 판단 모듈
 
-## 1. 역할
+## 1. 모듈 개요
 
-Module B는 Module A에서 전달받은 사용자 입력 텍스트를 분석하여 출발지, 목적지, 사용자 의도, 교통 상황을 판단한다.
+Module B는 사용자의 입력 문장을 분석하여 출발지, 목적지, 요청 의도를 추출하고, 이를 바탕으로 교통 경로 및 이동 가능 여부를 판단하는 모듈입니다.
 
-## 2. 입력
+Module A에서 전달된 음성 인식 결과 또는 사용자가 직접 입력한 텍스트를 받아 분석하며, 최종 결과는 Module C가 안내문을 생성할 수 있도록 JSON 형태로 반환합니다.
 
-Module A의 출력값 중 `recognized_text`를 입력으로 받는다.
+## 2. 주요 기능
+
+* 사용자 입력 문장에서 출발지·목적지 추출
+* BERT 기반 사용자 의도 분류
+* NER 기반 장소 추출 및 역명 오인식 보정
+* ODsay API 기반 대중교통 경로 조회
+* CSV fallback 기반 보조 경로 조회
+* Module C 전달용 JSON 결과 반환
+* 오류 상황별 코드 반환
+
+## 3. 처리 흐름
+
+```text
+사용자 입력 텍스트
+→ 장소 추출
+→ 의도 분류
+→ 경로 조회
+→ 이동 가능 여부 판단
+→ JSON 결과 반환
+```
+
+## 4. 구현 모델 및 데이터셋
+
+### BERT 기반 의도 분류
+
+사용자의 발화가 어떤 요청인지 분류하기 위해 BERT 기반 의도 분류 모델을 사용했습니다.
+
+의도 라벨은 다음과 같습니다.
+
+* route_search: 경로 검색
+* last_train_check: 막차 확인
+* alternative_route: 대체 경로 요청
+* subway_availability_check: 지하철 이용 가능 여부 확인
+* unknown: 알 수 없는 요청
+
+사용 데이터셋:
+
+```text
+module_b/data/intent_dataset.csv
+```
+
+약 1,000개 이상의 사용자 발화 문장을 구축하여 의도 분류 모델 학습에 활용했습니다.
+
+### NER 기반 장소 추출
+
+음성 인식 과정에서 역명이 잘못 인식되는 문제를 보완하기 위해 장소 추출 NER 모델을 구축했습니다.
+
+사용 데이터셋:
+
+```text
+module_b/data/location_dataset.csv
+module_b/data/location_ner_dataset.jsonl
+```
+
+`location_dataset.csv`는 장소 추출 원본 데이터셋이며, 총 1,600개의 사용자 발화 데이터를 포함합니다.
+`location_ner_dataset.jsonl`은 NER 학습을 위해 토큰 단위 BIO 태그 형식으로 변환한 데이터셋입니다.
+
+태그 구성은 다음과 같습니다.
+
+* B-START: 출발지 시작 토큰
+* I-START: 출발지 내부 토큰
+* B-DEST: 목적지 시작 토큰
+* I-DEST: 목적지 내부 토큰
+* O: 장소명이 아닌 토큰
+
+예시:
 
 ```json
 {
-  "recognized_text": "서울역에서 숙대입구역까지 가고 싶어요"
+  "text": "사울약에서 숙대입고까지 가고 싶어",
+  "tokens": ["사울약", "에서", "숙대입고", "까지", "가고", "싶어"],
+  "tags": ["B-START", "O", "B-DEST", "O", "O", "O"],
+  "start": "서울역",
+  "destination": "숙대입구역"
 }
-3. 출력
+```
 
-Module C에서 안내문을 생성할 수 있도록 구조화된 JSON 형식으로 결과를 반환한다.
+## 5. 역명 오인식 보정
 
+Whisper 음성 인식 결과에서 발생할 수 있는 역명 오인식을 보완하기 위해 `location_surface_map.json`을 사용합니다.
+
+예시:
+
+```text
+사울약 → 서울역
+서울약 → 서울역
+숙대입고 → 숙대입구역
+강남약 → 강남역
+```
+
+NER 모델이 장소를 추출하지 못하는 경우에는 `stations.csv` 기반 역명 사전 매칭을 fallback으로 사용합니다.
+
+## 6. 교통 경로 조회
+
+Module B는 출발지와 목적지를 추출한 뒤 ODsay API를 통해 대중교통 경로 조회를 시도합니다.
+
+API Key는 보안상 코드에 직접 작성하지 않고 환경변수로 설정합니다. 보고서에 첨부되어 있습니다.
+
+### macOS / Linux
+
+```bash
+export ODSAY_API_KEY="발급받은_API_KEY"
+python app.py
+```
+
+### Windows PowerShell
+
+```powershell
+$env:ODSAY_API_KEY="발급받은_API_KEY"
+python app.py
+```
+
+ODsay API Key가 없거나 API 호출에 실패하는 경우, CSV 기반 fallback 데이터를 사용하여 기본 경로 정보를 반환합니다.
+
+## 7. 주요 파일 설명
+
+| 파일명                         | 설명                             |
+| --------------------------- | ------------------------------ |
+| `route_ai_analyzer.py`      | Module B 전체 분석 파이프라인           |
+| `realtime_transport_api.py` | ODsay API 및 CSV fallback 경로 조회 |
+| `train_bert_intent.py`      | BERT 의도 분류 모델 학습 코드            |
+| `predict_bert_intent.py`    | 의도 분류 예측 코드                    |
+| `train_location_ner.py`     | 장소 추출 NER 모델 학습 코드             |
+| `predict_location_ner.py`   | 장소 추출 NER 예측 코드                |
+| `test_location_ner.py`      | 장소 추출 모델 테스트 코드                |
+| `location_surface_map.json` | 오인식 표현과 실제 역명 매핑               |
+| `stations.csv`              | 역명 사전 fallback 데이터             |
+
+## 8. 반환 결과 예시
+
+```json
 {
   "status": "success",
   "data": {
-    "original_text": "서울역에서 숙대입구역까지 가고 싶어요",
+    "original_text": "사울약에서 숙대입고까지 가고 싶어",
     "start": "서울역",
     "destination": "숙대입구역",
     "intent": "route_search",
-    "scenario": "subway_available",
-    "subway_status": "available",
-    "last_train_status": "available",
-    "alternative_needed": false,
+    "intent_method": "bert_classifier",
+    "location_method": "location_ner",
     "recommended_transport": "subway",
     "route_summary": {
-      "start": "서울역",
-      "end": "숙대입구역",
-      "transport": "subway",
       "estimated_time": "약 10분",
       "transfer": "환승 없음"
     }
   },
   "error": null
 }
-4. 담당 파일
-route_ai_analyzer.py: 장소 추출, 의도 분석, 교통 판단 코드
-routes.csv: 샘플 교통 데이터
-scenario_prompts.csv: 의도 분석용 시나리오 문장
-test_cases.csv: 테스트 문장
+```
 
-그다음 `module_b/routes.csv`에 아래 내용 넣어.
+## 9. 오류 코드 예시
 
-```csv
-start,end,time,subway_status,last_train_status,scenario,transport,estimated_time,transfer
-서울역,숙대입구역,23:00,available,available,subway_available,subway,약 10분,환승 없음
-서울역,숙대입구역,00:30,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
-을지로입구역,숙대입구역,22:30,available,available,subway_available,subway,약 20분,1회 환승
-을지로입구역,숙대입구역,00:20,unavailable,ended,bus_alternative,bus,약 35분,1회 환승
-숙대입구역,서울역,23:10,available,available,subway_available,subway,약 10분,환승 없음
-숙대입구역,서울역,00:40,unavailable,ended,last_train_ended,bus,약 25분,환승 없음
+| 오류 코드                  | 설명                |
+| ---------------------- | ----------------- |
+| `B_EMPTY_TEXT`         | 입력 텍스트가 비어 있음     |
+| `B_LOCATION_NOT_FOUND` | 출발지 또는 목적지를 찾지 못함 |
+| `B_ROUTE_NOT_FOUND`    | 경로 정보를 찾지 못함      |
+| `B_DATA_LOAD_FAILED`   | 데이터 파일 로드 실패      |
 
-## 5. 테스트 방법
+## 10. 실행 방법
 
-Module B 테스트는 `test_route_ai_analyzer.py`를 통해 실행한다.
+프로젝트 루트에서 다음 명령어를 실행합니다.
 
 ```bash
-python3 module_b/test_route_ai_analyzer.py
+python app.py
+```
 
-## 6. 테스트 결과
-
-현재 직접 구축한 테스트 케이스 15개 중 15개가 성공하였다.
-
-| 구분 | 테스트 내용 | 결과 |
-|---|---|---|
-| 기본 경로 탐색 | 출발지와 목적지가 모두 포함된 문장 분석 | 성공 |
-| 막차 확인 | “막차”, “끊겼나요” 등의 표현이 포함된 문장 분석 | 성공 |
-| 대체 교통수단 요청 | “버스”, “다른 방법” 등의 표현이 포함된 문장 분석 | 성공 |
-| 지하철 이용 가능 여부 | “지하철 탈 수 있나요?” 유형의 문장 분석 | 성공 |
-| 출발지 누락 예외 처리 | 목적지만 입력된 문장에 대해 재입력 요청 오류 반환 | 성공 |
-| 경로 데이터 매칭 | `routes.csv` 기반 추천 교통수단 및 예상 시간 반환 | 성공 |
-
-## 7. 직접 구축한 샘플 데이터
-
-Module B에서는 외부 교통 데이터셋을 그대로 사용하지 않고, MVP 검증을 위해 팀이 직접 샘플 데이터를 구축하였다.
-
-- `routes.csv`: 출발지, 목적지, 시간, 지하철 상태, 막차 상태, 추천 교통수단, 예상 소요 시간 데이터
-- `test_cases.csv`: 사용자가 실제로 말할 수 있는 자연어 입력 문장과 예상 결과
-- `scenario_prompts.csv`: 의도 분석을 위한 교통 상황 시나리오 문장
-
-## 8. 현재 한계
-
-- 실제 교통 API를 사용하지 않기 때문에 실시간 교통 정보는 반영하지 않는다.
-- 현재 장소 추출은 사전에 등록된 역명만 인식한다.
-- `routes.csv`에 없는 경로는 판단하지 못한다.
-- 현재 의도 분석은 키워드 기반이며, 추후 Sentence-Transformers 기반 의미 유사도 분석으로 확장할 예정이다.
-
-## 9. 다음 개선 방향
-
-- 주요 역명 사전 확대
-- 사용자 발화 데이터 추가 구축
-- `routes.csv` 샘플 경로 추가
-- `scenario_prompts.csv` 기반 의미 유사도 분석 기능 추가
-- Module A, Module C와의 통합 테스트 수행
-
-## 10. C 모듈 전달용 샘플 출력
-
-Module B의 분석 결과는 Module C에서 안내문 생성에 사용할 수 있도록 JSON 형식으로 전달한다.
-
-샘플 출력 파일은 다음 위치에 저장되어 있다.
-
-```text
-module_b/sample_output.json
-
-샘플 출력 주요 필드
-필드	의미
-status	처리 성공 또는 오류 여부
-original_text	사용자 원문
-start	출발지
-destination	목적지
-intent	사용자 요청 의도
-scenario	교통 상황 시나리오
-recommended_transport	추천 교통수단
-route_summary	C 모듈 안내문 생성에 필요한 요약 경로 정보
-C 모듈에서 활용할 값
-
-C 모듈은 주로 다음 값을 사용한다.
-
-start
-destination
-recommended_transport
-route_summary.estimated_time
-route_summary.transfer
-scenario
-
-## 11. 오픈소스 NLP 기반 의도 분석
-
-Module B는 사용자 입력 문장의 의도를 분석하기 위해 오픈소스 NLP 라이브러리인 Sentence-Transformers를 활용한다.
-
-### 활용 오픈소스
-
-- 라이브러리: `sentence-transformers`
-- 활용 모델: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
-- 활용 목적: 사용자 입력 문장과 교통 상황 시나리오 문장 간 의미 유사도 계산
-
-### 의도 분석 방식
-
-사용자 입력 문장은 다음 순서로 분석된다.
-
-1. 명확한 키워드가 있는 경우 규칙 기반으로 먼저 분류한다.
-   - 막차
-   - 버스
-   - 대체 교통수단
-   - 지하철 이용 가능 여부
-
-2. 키워드만으로 판단하기 어려운 문장은 Sentence-Transformers를 활용해 의미 유사도를 계산한다.
-
-3. `scenario_prompts.csv`에 저장된 시나리오 문장과 사용자 입력 문장을 각각 벡터화한 뒤, cosine similarity를 계산한다.
-
-4. 가장 유사한 시나리오의 intent 값을 사용자 의도로 반환한다.
-
-### fallback 처리
-
-실행 환경에 `sentence-transformers`가 설치되어 있지 않은 경우에도 프로그램이 중단되지 않도록 기존 키워드 기반 의도 분석 방식으로 fallback 처리한다.
-
-### 테스트 결과
-
-오픈소스 NLP 기반 의도 분석 로직을 추가한 뒤에도 `test_cases.csv` 기준 15개 테스트가 모두 성공하였다.
-
-```text
-전체 테스트 수: 15
-성공: 15
-실패: 0
-
-설치 방법
-
-프로젝트 실행 전 필요한 패키지는 다음 명령어로 설치한다.
-
-python3 -m pip install -r requirements.txt
+Module B는 전체 앱 실행 과정에서 자동으로 호출됩니다.
