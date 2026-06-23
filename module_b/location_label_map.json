@@ -1,0 +1,16 @@
+{
+  "label2id": {
+    "O": 0,
+    "B-START": 1,
+    "I-START": 2,
+    "B-DEST": 3,
+    "I-DEST": 4
+  },
+  "id2label": {
+    "0": "O",
+    "1": "B-START",
+    "2": "I-START",
+    "3": "B-DEST",
+    "4": "I-DEST"
+  }
+}
