@@ -1,0 +1,16 @@
+{
+  "label2id": {
+    "alternative_route": 0,
+    "last_train_check": 1,
+    "route_search": 2,
+    "subway_availability_check": 3,
+    "unknown": 4
+  },
+  "id2label": {
+    "0": "alternative_route",
+    "1": "last_train_check",
+    "2": "route_search",
+    "3": "subway_availability_check",
+    "4": "unknown"
+  }
+}

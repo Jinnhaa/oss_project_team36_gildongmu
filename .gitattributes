@@ -1,0 +1,2 @@
+module_b/models/bert_intent_model/model.safetensors filter=lfs diff=lfs merge=lfs -text
+module_b/models/location_ner_model/model.safetensors filter=lfs diff=lfs merge=lfs -text
